@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <!--We can add icons lates with android:icon="@drawable/ic_menu_camera"-->
+        <item
+            android:id="@+id/nav_profile"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/nav_library"
+            android:title="@string/library" />
+        <item
+            android:id="@+id/nav_currentRead"
+            android:title="@string/currentRead" />
+        <item
+            android:id="@+id/nav_suggestions"
+            android:title="@string/suggestions" />
+        <item
+            android:id="@+id/nav_social"
+            android:title="@string/social" />
+        <item
+            android:id="@+id/nav_settings"
+            android:title="@string/settings" />
+        <item
+            android:id="@+id/nav_exit"
+            android:title="@string/exit" />
+    </group>
+
+</menu>

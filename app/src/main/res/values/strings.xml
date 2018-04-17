@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Library</string>
     <string name="action_settings">Settings</string>
+    <string name="main">Начало</string>
+    <string name="profile">Профил</string>
+    <string name="library">Библиотека</string>
+    <string name="currentRead">В момента чете</string>
+    <string name="suggestions">Предложения</string>
+    <string name="social">Площад</string>
+    <string name="settings">Настройки</string>
+    <string name="exit">Изход</string>
 </resources>
