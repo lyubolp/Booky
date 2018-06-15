@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Library</string>
+    <string name="app_name">Booky</string>
     <string name="action_settings">Settings</string>
     <string name="main">Начало</string>
     <string name="profile">Профил</string>
@@ -9,4 +9,12 @@
     <string name="social">Площад</string>
     <string name="settings">Настройки</string>
     <string name="exit">Изход</string>
+    <string name="book">Книга</string>
+    <string name="bookPlaceholderName">Произведение - Автор</string>
+    <string name="bookPlaceholderGenre">Жанр - Жанр</string>
+    <string name="bookPlaceholderYearPublished">Година на издаване - 2018г.</string>
+    <string name="bookStateRead">Прочетена</string>
+    <string name="bookStateReading">В момента чете</string>
+    <string name="bookStateWishlist">В списък с желания</string>
+    <string name="bookStateDropped">Непрочетена</string>
 </resources>

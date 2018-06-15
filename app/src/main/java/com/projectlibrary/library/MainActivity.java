@@ -1,5 +1,6 @@
 package com.projectlibrary.library;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -9,9 +10,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.io.Console;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,17 +26,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        mDrawerLayout = findViewById(R.id.slide_menu); //This line breaks the app. No idea why
-
-        mDrawerLayout.inflateHeaderView(5);*/
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -44,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
+        //This whole snippet of code handles the slide menu click event
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -52,6 +46,30 @@ public class MainActivity extends AppCompatActivity {
                         menuItem.setChecked(true);
                         // close drawer when item is tapped
                         mDrawerLayout.closeDrawers();
+
+                        //menuItem is the menu item that is selected
+                        /*TODO - there is probably a better way to get the text that was clicked
+                          but for now, menuItem.toString() works
+                        */
+
+                        switch (menuItem.toString())
+                        {
+                            case "Библиотека":
+                                /*new View.OnClickListener() {
+                                    public void onClick(View v) {
+                                        Log.d("TEST", "1");
+
+                                    }
+                                };*/
+                                //startActivity(new Intent(MainActivity.this, library.class));
+                                Intent intent = new Intent(MainActivity.this, LibraryActivity.class);
+
+                                startActivity(intent);
+
+                                //case R.string.library; //TODO - When I try to access the string in values/string.xml, it shows them as integer... so yeah...
+                                break;
+                        }
+                        Log.d("TEST",menuItem.toString());
 
                         // Add code here to update the UI based on the item selected
                         // For example, swap UI fragments here
@@ -104,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
+
         switch (item.getItemId()) {
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);

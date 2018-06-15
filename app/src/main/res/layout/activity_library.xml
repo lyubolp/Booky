@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LibraryActivity"
+    android:background="@drawable/background">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+       <!-- <ImageView
+            android:id="@+id/shelf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/book_shelf" /> -->
+        <!-- books -->
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:backgroundTint="#00a2c5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.945"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/iconbutton" />
+
+
+        <LinearLayout
+            android:layout_width="318dp"
+            android:layout_height="175dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/single_shelf"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.053">
+
+            <ImageView
+                android:id="@+id/book1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.8"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="10dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/placeholder_book" />
+
+            <ImageView
+                android:id="@+id/book2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.8"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="0dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/placeholder_book" />
+
+            <ImageView
+                android:id="@+id/book3"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.8"
+                android:clickable="true"
+                android:layout_marginTop="50dp"
+
+                app:srcCompat="@drawable/placeholder_book" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="318dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="178dp"
+            android:background="@drawable/single_shelf_main"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.053">
+
+            <ImageView
+                android:id="@+id/book4"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.8"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/placeholder_book" />
+
+            <ImageView
+                android:id="@+id/book5"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.8"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="0dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/placeholder_book" />
+
+            <ImageView
+                android:id="@+id/book6"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.8"
+                android:clickable="true"
+                android:layout_marginTop="5dp"
+
+                app:srcCompat="@drawable/placeholder_book" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="318dp"
+            android:layout_height="120dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="290dp"
+            android:background="@drawable/single_shelf_main"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.053">
+
+            <ImageView
+                android:id="@+id/book7"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.8"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/placeholder_book" />
+
+            <ImageView
+                android:id="@+id/book8"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.8"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="0dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/placeholder_book" />
+
+            <ImageView
+                android:id="@+id/book9"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.8"
+                android:layout_marginTop="5dp"
+                android:clickable="true"
+                app:srcCompat="@drawable/placeholder_book" />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>
