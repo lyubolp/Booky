@@ -52,9 +52,6 @@
             android:layout_marginTop="304dp"
             android:fontFamily="sans-serif"
             android:shadowColor="@color/colorBlack"
-            android:shadowDx="5px"
-            android:shadowDy="5px"
-            android:shadowRadius="5px"
             android:text="@string/bookPlaceholderName"
             android:textColor="@color/cardview_light_background"
             android:textSize="30sp"
@@ -64,7 +61,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.093" />
-
+        <!--android:shadowDx="5px"
+                    android:shadowDy="5px"
+                    android:shadowRadius="5px"-->
         <TextView
             android:id="@+id/bookGenre"
             android:layout_width="237dp"
@@ -75,9 +74,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
             android:shadowColor="@color/colorBlack"
-            android:shadowDx="5px"
-            android:shadowDy="5px"
-            android:shadowRadius="5px"
             android:text="@string/bookPlaceholderGenre"
             android:textColor="@color/cardview_light_background"
             android:textSize="20sp"
@@ -98,9 +94,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
             android:shadowColor="@color/colorBlack"
-            android:shadowDx="5px"
-            android:shadowDy="5px"
-            android:shadowRadius="5px"
             android:text="@string/bookPlaceholderYearPublished"
             android:textColor="@color/cardview_light_background"
             android:textSize="20sp"
