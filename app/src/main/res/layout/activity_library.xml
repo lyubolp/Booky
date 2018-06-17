@@ -119,14 +119,6 @@
                 android:layout_marginLeft="0dp"
                 app:srcCompat="@drawable/placeholder_book" />
 
-            <ImageView
-                android:id="@+id/book6"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_weight="0.8"
-                android:layout_marginTop="5dp"
-
-                app:srcCompat="@drawable/placeholder_book" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="318dp"
