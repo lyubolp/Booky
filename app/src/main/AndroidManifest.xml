@@ -27,7 +27,7 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".bookActivity"
             android:label="@string/book"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".LibraryActivity">
 
         </activity>
     </application>
