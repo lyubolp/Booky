@@ -1,6 +1,5 @@
 package com.projectlibrary.library;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -106,9 +105,6 @@ public class LibraryActivity extends AppCompatActivity {
         switch (a)
         {
             case "com.projectlibrary.library:id/book1":
-                Intent intent = new Intent(LibraryActivity.this, bookActivity.class);
-
-                startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book2":
                 break;
