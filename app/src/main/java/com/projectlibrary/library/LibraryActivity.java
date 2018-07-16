@@ -1,16 +1,10 @@
 package com.projectlibrary.library;
 
-<<<<<<< HEAD
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-=======
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
 import android.view.View;
 import android.widget.ImageView;
 
@@ -19,14 +13,11 @@ import java.net.URL;
 
 public class LibraryActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
-=======
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
 
     //Events for images clicked
 
 
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
     //Function that loads an image based on a URL (may be usefull in the future)
     public static Drawable LoadImageFromWebOperations(String url) {
         try {
@@ -40,15 +31,6 @@ public class LibraryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-<<<<<<< HEAD
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library);
-    }
-
-    //Events for images clicked
-
-    
-=======
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
@@ -151,5 +133,4 @@ public class LibraryActivity extends AppCompatActivity {
 
 
 
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
 }

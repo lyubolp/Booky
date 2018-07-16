@@ -66,10 +66,7 @@
                 android:layout_weight="0.8"
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="10dp"
-<<<<<<< HEAD
-=======
                 android:clickable="true"
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
                 app:srcCompat="@drawable/placeholder_book" />
 
             <ImageView
@@ -79,10 +76,7 @@
                 android:layout_weight="0.8"
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="0dp"
-<<<<<<< HEAD
-=======
                 android:clickable="true"
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
                 app:srcCompat="@drawable/placeholder_book" />
 
             <ImageView
@@ -90,10 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_weight="0.8"
-<<<<<<< HEAD
-=======
                 android:clickable="true"
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
                 android:layout_marginTop="50dp"
 
                 app:srcCompat="@drawable/placeholder_book" />
@@ -120,10 +111,7 @@
                 android:layout_weight="0.8"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
-<<<<<<< HEAD
-=======
                 android:clickable="true"
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
                 app:srcCompat="@drawable/placeholder_book" />
 
             <ImageView
@@ -133,10 +121,7 @@
                 android:layout_weight="0.8"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="0dp"
-<<<<<<< HEAD
-=======
                 android:clickable="true"
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
                 app:srcCompat="@drawable/placeholder_book" />
 
             <ImageView
@@ -144,10 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_weight="0.8"
-<<<<<<< HEAD
-=======
                 android:clickable="true"
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
                 android:layout_marginTop="5dp"
 
                 app:srcCompat="@drawable/placeholder_book" />
@@ -174,10 +156,7 @@
                 android:layout_weight="0.8"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
-<<<<<<< HEAD
-=======
                 android:clickable="true"
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
                 app:srcCompat="@drawable/placeholder_book" />
 
             <ImageView
@@ -187,10 +166,7 @@
                 android:layout_weight="0.8"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="0dp"
-<<<<<<< HEAD
-=======
                 android:clickable="true"
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
                 app:srcCompat="@drawable/placeholder_book" />
 
             <ImageView
@@ -199,11 +175,7 @@
                 android:layout_height="100dp"
                 android:layout_weight="0.8"
                 android:layout_marginTop="5dp"
-<<<<<<< HEAD
-
-=======
                 android:clickable="true"
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
                 app:srcCompat="@drawable/placeholder_book" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>

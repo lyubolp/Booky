@@ -21,11 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".LibraryActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/library"></activity>
-=======
         <activity
             android:name=".LibraryActivity"
             android:label="@string/library"
@@ -35,7 +30,6 @@
             android:parentActivityName=".LibraryActivity">
 
         </activity>
->>>>>>> f5431275793b8aef2b4eeadd8567e9bea5958da7
     </application>
 
 </manifest>
