@@ -8,3 +8,8 @@
 /build
 /captures
 .externalNativeBuild
+
+# Luchev 2018/07/15
+# Local mysql server and web folders
+# Removing all windows shortcuts
+*.lnk
