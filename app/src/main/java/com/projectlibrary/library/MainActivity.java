@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
+        new JSONLoader().execute();
+
+
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         //This whole snippet of code handles the slide menu click event
         navigationView.setNavigationItemSelectedListener(
