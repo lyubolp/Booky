@@ -14,6 +14,8 @@ import java.net.URL;
 public class LibraryActivity extends AppCompatActivity {
 
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
+    int[] currentBooksIds = {1,2,3,4,5,6,7,8,9}; //The id's of the 9 books currently displayed to the user
+
 
     //Events for images clicked
 
@@ -34,6 +36,7 @@ public class LibraryActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
+        //Temporary code
 
         //Every event sends the id of the book object
         img1 = findViewById(R.id.book1); //Binding the objects to the views
@@ -102,29 +105,56 @@ public class LibraryActivity extends AppCompatActivity {
 
     public void clickEvent(String a)
     {
+
+        Intent intent;
         Log.d("TEST", a); //The id's are in such format com.projectlibrary.library:id/book1
         switch (a)
         {
             case "com.projectlibrary.library:id/book1":
-                Intent intent = new Intent(LibraryActivity.this, bookActivity.class);
 
+                intent = new Intent(LibraryActivity.this, bookActivity.class);
+                intent.putExtra("OPENED_BOOK",String.valueOf(currentBooksIds[0]));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book2":
+                intent = new Intent(LibraryActivity.this, bookActivity.class);
+                intent.putExtra("OPENED_BOOK",String.valueOf(currentBooksIds[1]));
+                startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book3":
+                intent = new Intent(LibraryActivity.this, bookActivity.class);
+                intent.putExtra("OPENED_BOOK",String.valueOf(currentBooksIds[2]));
+                startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book4":
+                intent = new Intent(LibraryActivity.this, bookActivity.class);
+                intent.putExtra("OPENED_BOOK",String.valueOf(currentBooksIds[3]));
+                startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book5":
+                intent = new Intent(LibraryActivity.this, bookActivity.class);
+                intent.putExtra("OPENED_BOOK",String.valueOf(currentBooksIds[4]));
+                startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book6":
+                intent = new Intent(LibraryActivity.this, bookActivity.class);
+                intent.putExtra("OPENED_BOOK",String.valueOf(currentBooksIds[5]));
+                startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book7":
+                intent = new Intent(LibraryActivity.this, bookActivity.class);
+                intent.putExtra("OPENED_BOOK",String.valueOf(currentBooksIds[6]));
+                startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book8":
+                intent = new Intent(LibraryActivity.this, bookActivity.class);
+                intent.putExtra("OPENED_BOOK",String.valueOf(currentBooksIds[7]));
+                startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book9":
+                intent = new Intent(LibraryActivity.this, bookActivity.class);
+                intent.putExtra("OPENED_BOOK",String.valueOf(currentBooksIds[8]));
+                startActivity(intent);
                 break;
         }
     }

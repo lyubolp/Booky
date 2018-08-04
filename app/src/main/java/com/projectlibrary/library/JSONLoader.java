@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import org.json.*;
 
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
@@ -24,6 +25,7 @@ public class JSONLoader extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... arg0) {
+        Log.d("JSON","Started");
         HttpHandler sh = new HttpHandler();
         // Making a request to url and getting response
         String url = "http://booky.lkarev.com/test.json";
@@ -63,5 +65,7 @@ public class JSONLoader extends AsyncTask<Void, Void, Void> {
         super.onPostExecute(result);
 
     }
+
+
 
 }
