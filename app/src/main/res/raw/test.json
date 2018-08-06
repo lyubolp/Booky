@@ -1,0 +1,58 @@
+{
+    "Books": [
+        {
+            "id": "1", //int
+            "name": "Тютюн", //varchar
+			"namebg": "Тютюн", //varchar
+			"genres": "Роман", //varchar
+			"chapters": "13", //int
+			"series": "0", //int
+			"author": "1", //int
+			"coauthors": "0", //varchar
+			"year": "1951", //int
+			"month": "0", //int
+			"day": "0", //int
+			"language_id": "1", //varchar
+			"translatedbg": "1", //bool
+			"country": "Bulgaria", //varchar
+			"type": "Novel", //varchar
+			"rating": "4.32", //float
+			"finished": "123", //int
+			"reading": "23", //int
+			"wishlist": "23", //int
+			"dropped": "3", //int
+			"onhold": "1", //int
+			"summary_id": "3", //int
+			"reviews": "123", //int
+			"cover": "23", //varchar
+			"characters": "12" //varchar
+        },
+        {
+            "id": "2", //int
+            "name": "1984", //varchar
+			"namebg": "1984", //varchar
+			"genres": "Роман", //varchar
+			"chapters": "13", //int
+			"series": "0", //int
+			"author": "1", //int
+			"coauthors": "0", //varchar
+			"year": "1951", //int
+			"month": "0", //int
+			"day": "0", //int
+			"language_id": "1", //varchar
+			"translatedbg": "1", //bool
+			"country": "Bulgaria", //varchar
+			"type": "Novel", //varchar
+			"rating": "4.32", //float
+			"finished": "123", //int
+			"reading": "23", //int
+			"wishlist": "23", //int
+			"dropped": "3", //int
+			"onhold": "1", //int
+			"summary_id": "3", //int
+			"reviews": "123", //int
+			"cover": "23", //varchar
+			"characters": "12" //varchar
+        }
+    ] 
+}

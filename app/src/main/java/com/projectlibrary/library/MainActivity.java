@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
+        //new JSONLoader().execute();
+
+        Log.d("Test", "Trying to read local file..");
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         //This whole snippet of code handles the slide menu click event
         navigationView.setNavigationItemSelectedListener(
@@ -51,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                         /*TODO - there is probably a better way to get the text that was clicked
                           but for now, menuItem.toString() works
                         */
+
+
 
                         switch (menuItem.toString())
                         {
