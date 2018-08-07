@@ -3,6 +3,7 @@ package com.projectlibrary.library;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +25,16 @@ public class bookActivity extends AppCompatActivity {
 
         JSONHandler js = new JSONHandler(loadJSONFromAsset());
         book = js.getBookAt(bookIdInt);
-        Log.d("Book", book.getOriginalName());
+
+        TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
+        tv.setText(book.getOriginalName() + " - " + book.getAuthor()); //Author is an int, when the DB is finished, will be a name
+
+        tv = findViewById(R.id.bookYearPublished);
+        tv.setText(book.getReleaseDate());
+
+        tv = findViewById(R.id.bookGenre);
+        tv.setText(book.getGenres());
+
     }
     public String loadJSONFromAsset() {
         String json = "none";
