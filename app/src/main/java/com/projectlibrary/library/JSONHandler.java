@@ -36,17 +36,7 @@ public class JSONHandler {
                 JSONObject curBook = books.getJSONObject(i);
                 if(Integer.parseInt(curBook.getString("id")) == id)
                 {
-                    result.setID(id);
 
-                    result.setRead(Integer.parseInt(curBook.getString("finished")));
-                    result.setReading(Integer.parseInt(curBook.getString("reading")));
-
-                    result.setOriginalName(curBook.getString("name"));
-                    result.setBgName(curBook.getString("namebg"));
-                    result.setGenres(curBook.getString("genres"));
-                    result.setChapters(Integer.parseInt(curBook.getString("chapters")));
-                    result.setAuthor(Integer.parseInt(curBook.getString("author")));
-                    result.setReleaseDate(curBook.getString("day") + "/" + curBook.getString("month") + "/" + curBook.getString("year"));
 
 
                 }
