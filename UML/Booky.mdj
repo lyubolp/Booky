@@ -1627,7 +1627,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlDVqT8q0nVDk="
 									},
-									"name": "idLint"
+									"name": "idLint",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -2547,7 +2548,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlDKrNSqh8CaY="
 									},
-									"name": "ConstructorWithAllParameters"
+									"name": "ConstructorWithAllParameters",
+									"type": ""
 								}
 							]
 						},
@@ -3138,7 +3140,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFlDHXq7afnJ8I="
 									},
-									"name": "ConstructorWithAllParameters"
+									"name": "ConstructorWithAllParameters",
+									"type": ""
 								}
 							]
 						},
@@ -12391,7 +12394,7 @@
 									"font": "Roboto;14;1",
 									"left": 3408,
 									"top": 21,
-									"width": 163.341796875,
+									"width": 173.1376953125,
 									"height": 14,
 									"text": "user_author"
 								},
@@ -12417,7 +12420,7 @@
 											"font": "Roboto;14;0",
 											"left": 3413,
 											"top": 45,
-											"width": 153.341796875,
+											"width": 163.1376953125,
 											"height": 14
 										},
 										{
@@ -12432,7 +12435,7 @@
 											"font": "Roboto;14;0",
 											"left": 3413,
 											"top": 61,
-											"width": 153.341796875,
+											"width": 163.1376953125,
 											"height": 14
 										},
 										{
@@ -12447,7 +12450,7 @@
 											"font": "Roboto;14;0",
 											"left": 3413,
 											"top": 77,
-											"width": 153.341796875,
+											"width": 163.1376953125,
 											"height": 14
 										},
 										{
@@ -12462,21 +12465,21 @@
 											"font": "Roboto;14;0",
 											"left": 3413,
 											"top": 93,
-											"width": 153.341796875,
+											"width": 163.1376953125,
 											"height": 14
 										}
 									],
 									"font": "Roboto;14;0",
 									"left": 3408,
 									"top": 40,
-									"width": 163.341796875,
+									"width": 173.1376953125,
 									"height": 72
 								}
 							],
 							"font": "Roboto;14;0",
 							"left": 3408,
 							"top": 16,
-							"width": 163.341796875,
+							"width": 173.1376953125,
 							"height": 96,
 							"nameLabel": {
 								"$ref": "AAAAAAFk3dHUqGx9Jow="

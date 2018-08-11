@@ -243,8 +243,8 @@ public class User {
 
     public void addFriend(int id)
     {
-        Friend temp = new Friend(id);
-        friends.add(temp);
+        //Friend temp = new Friend(id);
+        //friends.add(temp);
     }
 
     public void removeFriend(int id)
