@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2018 at 06:49 AM
+-- Generation Time: Aug 14, 2018 at 10:18 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -56,7 +56,9 @@ CREATE TABLE `author` (
   `pen_name_original` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Original pen name ',
   `pen_name_bg` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Pen name in Bulgarian',
   `pen_name_en` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Pen name in English',
-  `picture` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Link to the author`s portrait picture'
+  `picture` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Link to the author`s portrait picture',
+  `rating` int(10) UNSIGNED NOT NULL COMMENT 'Accumulated rating from all users who have rated the book',
+  `rating_count` int(11) NOT NULL COMMENT 'Number of users who have given rating'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -92,7 +94,8 @@ CREATE TABLE `book` (
   `publish_year` smallint(6) NOT NULL COMMENT 'Year when the book was published',
   `language_id` smallint(6) NOT NULL COMMENT 'ID of the language the original book was written in',
   `country_id` int(11) NOT NULL COMMENT 'ID of the country where the book was written and published',
-  `rating` tinyint(4) NOT NULL COMMENT 'Accumulated rating from all users who have rated the book',
+  `rating` int(10) UNSIGNED NOT NULL COMMENT 'Accumulated rating from all users who have rated the book',
+  `rating_count` int(11) NOT NULL COMMENT 'Number of users who have given rating',
   `finished_count` int(11) NOT NULL COMMENT 'Number of people who have finished the book',
   `reading_count` int(11) NOT NULL COMMENT 'Number of people who are reading the book',
   `wishlist_count` int(11) NOT NULL COMMENT 'Number of people who have the book in their wishlist',
@@ -128,7 +131,8 @@ CREATE TABLE `book_review` (
   `user_id` int(11) NOT NULL COMMENT 'ID of the user who wrote this review',
   `language_id` int(11) NOT NULL COMMENT 'ID of the language the review is written in',
   `text` varchar(4000) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Actual content of the review',
-  `rating` tinyint(4) NOT NULL COMMENT 'Accumulated rating from all users who have rated the review'
+  `rating` int(10) UNSIGNED NOT NULL COMMENT 'Accumulated rating from all users who have rated the review',
+  `rating_count` int(11) NOT NULL COMMENT 'Number of users who have given rating'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------

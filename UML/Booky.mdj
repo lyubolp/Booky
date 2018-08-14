@@ -10102,7 +10102,7 @@
 									"font": "Arial;13;1",
 									"left": 272,
 									"top": 21,
-									"width": 260.92138671875,
+									"width": 296.55078125,
 									"height": 13,
 									"text": "author"
 								},
@@ -10128,7 +10128,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 44,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10143,7 +10143,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 59,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10158,7 +10158,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 74,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10173,7 +10173,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 89,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10188,7 +10188,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 104,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10203,7 +10203,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 119,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10218,7 +10218,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 134,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10233,7 +10233,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 149,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10248,7 +10248,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 164,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10263,7 +10263,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 179,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10278,7 +10278,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 194,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10293,7 +10293,7 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 209,
-											"width": 250.92138671875,
+											"width": 286.55078125,
 											"height": 13
 										},
 										{
@@ -10308,22 +10308,52 @@
 											"font": "Arial;13;0",
 											"left": 277,
 											"top": 224,
-											"width": 250.92138671875,
+											"width": 286.55078125,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAFlOgQn9ZToUgc=",
+											"_parent": {
+												"$ref": "AAAAAAFjMILL6RkADzY="
+											},
+											"model": {
+												"$ref": "AAAAAAFlOgQnu5TltMY="
+											},
+											"font": "Arial;13;0",
+											"left": 277,
+											"top": 239,
+											"width": 286.55078125,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAFlOgQyf5TuzQo=",
+											"_parent": {
+												"$ref": "AAAAAAFjMILL6RkADzY="
+											},
+											"model": {
+												"$ref": "AAAAAAFlOgQyX5TrPqM="
+											},
+											"font": "Arial;13;0",
+											"left": 277,
+											"top": 254,
+											"width": 286.55078125,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 272,
 									"top": 39,
-									"width": 260.92138671875,
-									"height": 203
+									"width": 296.55078125,
+									"height": 233
 								}
 							],
 							"font": "Arial;13;0",
 							"left": 272,
 							"top": 16,
-							"width": 260.92138671875,
-							"height": 226,
+							"width": 296.55078125,
+							"height": 256,
 							"autoResize": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFjMILL6Bj/SC0="
@@ -10349,9 +10379,9 @@
 										"$ref": "AAAAAAFjMILYBRkKIiU="
 									},
 									"font": "Arial;13;1",
-									"left": 560,
+									"left": 576,
 									"top": 21,
-									"width": 237.0478515625,
+									"width": 272.67724609375,
 									"height": 13,
 									"text": "book"
 								},
@@ -10375,9 +10405,9 @@
 												"$ref": "AAAAAAFjMRZMeRrC9VU="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
+											"left": 581,
 											"top": 44,
-											"width": 227.0478515625,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10390,9 +10420,9 @@
 												"$ref": "AAAAAAFjMRZ69xrI2vo="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
+											"left": 581,
 											"top": 59,
-											"width": 227.0478515625,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10405,9 +10435,9 @@
 												"$ref": "AAAAAAFjMRaPN6HtUZM="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
+											"left": 581,
 											"top": 74,
-											"width": 227.0478515625,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10420,9 +10450,9 @@
 												"$ref": "AAAAAAFjMRak7aHvHcs="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
+											"left": 581,
 											"top": 89,
-											"width": 227.0478515625,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10435,9 +10465,9 @@
 												"$ref": "AAAAAAFjMRc9TKHw7FU="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
+											"left": 581,
 											"top": 104,
-											"width": 227.0478515625,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10450,9 +10480,9 @@
 												"$ref": "AAAAAAFk57N+qczvM/I="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
+											"left": 581,
 											"top": 119,
-											"width": 227.0478515625,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10465,9 +10495,24 @@
 												"$ref": "AAAAAAFk57PCLcz2D5k="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
+											"left": 581,
 											"top": 134,
-											"width": 227.0478515625,
+											"width": 262.67724609375,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAFlOhNF0ZUVf+s=",
+											"_parent": {
+												"$ref": "AAAAAAFjMILYBRkMO8Y="
+											},
+											"model": {
+												"$ref": "AAAAAAFlOhNFpJUSeo0="
+											},
+											"font": "Arial;13;0",
+											"left": 581,
+											"top": 149,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10480,9 +10525,9 @@
 												"$ref": "AAAAAAFk57PnQcz9qeY="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 149,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 164,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10495,9 +10540,9 @@
 												"$ref": "AAAAAAFk57PwZ80Dhjk="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 164,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 179,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10510,9 +10555,9 @@
 												"$ref": "AAAAAAFk57P22M0JSDE="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 179,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 194,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10525,9 +10570,9 @@
 												"$ref": "AAAAAAFk57P8Q80PLuQ="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 194,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 209,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10540,9 +10585,9 @@
 												"$ref": "AAAAAAFk57QB1c0VRtU="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 209,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 224,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10555,9 +10600,9 @@
 												"$ref": "AAAAAAFk57QwDs0c+pQ="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 224,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 239,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10570,9 +10615,9 @@
 												"$ref": "AAAAAAFk57USrM0qj9w="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 239,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 254,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10585,9 +10630,9 @@
 												"$ref": "AAAAAAFk57UXns0w+R8="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 254,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 269,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10600,9 +10645,9 @@
 												"$ref": "AAAAAAFk57Ucn802DOU="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 269,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 284,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10615,9 +10660,9 @@
 												"$ref": "AAAAAAFk57Uis808M6g="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 284,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 299,
+											"width": 262.67724609375,
 											"height": 13
 										},
 										{
@@ -10630,24 +10675,24 @@
 												"$ref": "AAAAAAFlDBdAFqTsS0w="
 											},
 											"font": "Arial;13;0",
-											"left": 565,
-											"top": 299,
-											"width": 227.0478515625,
+											"left": 581,
+											"top": 314,
+											"width": 262.67724609375,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 560,
+									"left": 576,
 									"top": 39,
-									"width": 237.0478515625,
-									"height": 278
+									"width": 272.67724609375,
+									"height": 293
 								}
 							],
 							"font": "Arial;13;0",
-							"left": 560,
+							"left": 576,
 							"top": 16,
-							"width": 237.0478515625,
-							"height": 301,
+							"width": 272.67724609375,
+							"height": 316,
 							"autoResize": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFjMILYBRkLNuE="
@@ -10673,7 +10718,7 @@
 										"$ref": "AAAAAAFjMRUn+BqLWV4="
 									},
 									"font": "Arial;13;1",
-									"left": 808,
+									"left": 856,
 									"top": 21,
 									"width": 192.2841796875,
 									"height": 13,
@@ -10699,7 +10744,7 @@
 												"$ref": "AAAAAAFjMhsdlcCz3zU="
 											},
 											"font": "Arial;13;0",
-											"left": 813,
+											"left": 861,
 											"top": 44,
 											"width": 182.2841796875,
 											"height": 13
@@ -10714,7 +10759,7 @@
 												"$ref": "AAAAAAFjMh1oXcDAyJo="
 											},
 											"font": "Arial;13;0",
-											"left": 813,
+											"left": 861,
 											"top": 59,
 											"width": 182.2841796875,
 											"height": 13
@@ -10729,21 +10774,21 @@
 												"$ref": "AAAAAAFjMh4X+8DNdC0="
 											},
 											"font": "Arial;13;0",
-											"left": 813,
+											"left": 861,
 											"top": 74,
 											"width": 182.2841796875,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 808,
+									"left": 856,
 									"top": 39,
 									"width": 192.2841796875,
 									"height": 53
 								}
 							],
 							"font": "Arial;13;0",
-							"left": 808,
+							"left": 856,
 							"top": 16,
 							"width": 192.2841796875,
 							"height": 76,
@@ -10772,7 +10817,7 @@
 										"$ref": "AAAAAAFjMSlCDBtNatw="
 									},
 									"font": "Arial;13;1",
-									"left": 1696,
+									"left": 1720,
 									"top": 21,
 									"width": 159.314453125,
 									"height": 13,
@@ -10798,7 +10843,7 @@
 												"$ref": "AAAAAAFjMtwba8KGmoE="
 											},
 											"font": "Arial;13;0",
-											"left": 1701,
+											"left": 1725,
 											"top": 44,
 											"width": 149.314453125,
 											"height": 13
@@ -10813,21 +10858,21 @@
 												"$ref": "AAAAAAFjMtwjSsKMtas="
 											},
 											"font": "Arial;13;0",
-											"left": 1701,
+											"left": 1725,
 											"top": 59,
 											"width": 149.314453125,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 1696,
+									"left": 1720,
 									"top": 39,
 									"width": 159.314453125,
 									"height": 38
 								}
 							],
 							"font": "Arial;13;0",
-							"left": 1696,
+							"left": 1720,
 							"top": 16,
 							"width": 159.314453125,
 							"height": 61,
@@ -11030,7 +11075,7 @@
 										"$ref": "AAAAAAFjMVXeJBx4/WQ="
 									},
 									"font": "Arial;13;1",
-									"left": 1488,
+									"left": 1520,
 									"top": 21,
 									"width": 192.2841796875,
 									"height": 13,
@@ -11056,7 +11101,7 @@
 												"$ref": "AAAAAAFjMiBvIMDaf4s="
 											},
 											"font": "Arial;13;0",
-											"left": 1493,
+											"left": 1525,
 											"top": 44,
 											"width": 182.2841796875,
 											"height": 13
@@ -11071,7 +11116,7 @@
 												"$ref": "AAAAAAFjMiB3w8DghJA="
 											},
 											"font": "Arial;13;0",
-											"left": 1493,
+											"left": 1525,
 											"top": 59,
 											"width": 182.2841796875,
 											"height": 13
@@ -11086,21 +11131,21 @@
 												"$ref": "AAAAAAFjMiCAHMDm1cc="
 											},
 											"font": "Arial;13;0",
-											"left": 1493,
+											"left": 1525,
 											"top": 74,
 											"width": 182.2841796875,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 1488,
+									"left": 1520,
 									"top": 39,
 									"width": 192.2841796875,
 									"height": 53
 								}
 							],
 							"font": "Arial;13;0",
-							"left": 1488,
+							"left": 1520,
 							"top": 16,
 							"width": 192.2841796875,
 							"height": 76,
@@ -11129,7 +11174,7 @@
 										"$ref": "AAAAAAFjMVmT/hy+C/A="
 									},
 									"font": "Arial;13;1",
-									"left": 2080,
+									"left": 2088,
 									"top": 21,
 									"width": 230.57958984375,
 									"height": 13,
@@ -11155,7 +11200,7 @@
 												"$ref": "AAAAAAFjMrD6/MGEmyY="
 											},
 											"font": "Arial;13;0",
-											"left": 2085,
+											"left": 2093,
 											"top": 44,
 											"width": 220.57958984375,
 											"height": 13
@@ -11170,7 +11215,7 @@
 												"$ref": "AAAAAAFjMrIw1MGZP9g="
 											},
 											"font": "Arial;13;0",
-											"left": 2085,
+											"left": 2093,
 											"top": 59,
 											"width": 220.57958984375,
 											"height": 13
@@ -11185,7 +11230,7 @@
 												"$ref": "AAAAAAFjMrZC/sH/A/Q="
 											},
 											"font": "Arial;13;0",
-											"left": 2085,
+											"left": 2093,
 											"top": 74,
 											"width": 220.57958984375,
 											"height": 13
@@ -11200,7 +11245,7 @@
 												"$ref": "AAAAAAFk57xbOM2oCkc="
 											},
 											"font": "Arial;13;0",
-											"left": 2085,
+											"left": 2093,
 											"top": 89,
 											"width": 220.57958984375,
 											"height": 13
@@ -11215,7 +11260,7 @@
 												"$ref": "AAAAAAFlAUD5/dpi/Qs="
 											},
 											"font": "Arial;13;0",
-											"left": 2085,
+											"left": 2093,
 											"top": 104,
 											"width": 220.57958984375,
 											"height": 13
@@ -11230,21 +11275,21 @@
 												"$ref": "AAAAAAFlDBfhnaTz7nc="
 											},
 											"font": "Arial;13;0",
-											"left": 2085,
+											"left": 2093,
 											"top": 119,
 											"width": 220.57958984375,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 2080,
+									"left": 2088,
 									"top": 39,
 									"width": 230.57958984375,
 									"height": 98
 								}
 							],
 							"font": "Arial;13;0",
-							"left": 2080,
+							"left": 2088,
 							"top": 16,
 							"width": 230.57958984375,
 							"height": 121,
@@ -11417,9 +11462,9 @@
 										"$ref": "AAAAAAFjNXJF5sNidns="
 									},
 									"font": "Arial;13;1",
-									"left": 1016,
+									"left": 1056,
 									"top": 21,
-									"width": 225.5205078125,
+									"width": 256.79541015625,
 									"height": 13,
 									"text": "book_review"
 								},
@@ -11443,9 +11488,9 @@
 												"$ref": "AAAAAAFjNrMYFMOzaZc="
 											},
 											"font": "Arial;13;0",
-											"left": 1021,
+											"left": 1061,
 											"top": 44,
-											"width": 215.5205078125,
+											"width": 246.79541015625,
 											"height": 13
 										},
 										{
@@ -11458,9 +11503,9 @@
 												"$ref": "AAAAAAFjNrMfSMO57y8="
 											},
 											"font": "Arial;13;0",
-											"left": 1021,
+											"left": 1061,
 											"top": 59,
-											"width": 215.5205078125,
+											"width": 246.79541015625,
 											"height": 13
 										},
 										{
@@ -11473,9 +11518,9 @@
 												"$ref": "AAAAAAFjNrMl68O/UbU="
 											},
 											"font": "Arial;13;0",
-											"left": 1021,
+											"left": 1061,
 											"top": 74,
-											"width": 215.5205078125,
+											"width": 246.79541015625,
 											"height": 13
 										},
 										{
@@ -11488,9 +11533,9 @@
 												"$ref": "AAAAAAFjNrMr+sPF9bM="
 											},
 											"font": "Arial;13;0",
-											"left": 1021,
+											"left": 1061,
 											"top": 89,
-											"width": 215.5205078125,
+											"width": 246.79541015625,
 											"height": 13
 										},
 										{
@@ -11503,9 +11548,9 @@
 												"$ref": "AAAAAAFjNrMzrMPLFvs="
 											},
 											"font": "Arial;13;0",
-											"left": 1021,
+											"left": 1061,
 											"top": 104,
-											"width": 215.5205078125,
+											"width": 246.79541015625,
 											"height": 13
 										},
 										{
@@ -11518,24 +11563,39 @@
 												"$ref": "AAAAAAFk57epjc1O35c="
 											},
 											"font": "Arial;13;0",
-											"left": 1021,
+											"left": 1061,
 											"top": 119,
-											"width": 215.5205078125,
+											"width": 246.79541015625,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAFlOhPtKpUw9Qs=",
+											"_parent": {
+												"$ref": "AAAAAAFjNXJF6cNkNw0="
+											},
+											"model": {
+												"$ref": "AAAAAAFlOhPs+JUtgF4="
+											},
+											"font": "Arial;13;0",
+											"left": 1061,
+											"top": 134,
+											"width": 246.79541015625,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 1016,
+									"left": 1056,
 									"top": 39,
-									"width": 225.5205078125,
-									"height": 98
+									"width": 256.79541015625,
+									"height": 113
 								}
 							],
 							"font": "Arial;13;0",
-							"left": 1016,
+							"left": 1056,
 							"top": 16,
-							"width": 225.5205078125,
-							"height": 121,
+							"width": 256.79541015625,
+							"height": 136,
 							"autoResize": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFjNXJF6MNjSIQ="
@@ -11561,7 +11621,7 @@
 										"$ref": "AAAAAAFjNsFgWsRbc5Q="
 									},
 									"font": "Arial;13;1",
-									"left": 1256,
+									"left": 1320,
 									"top": 21,
 									"width": 192.2841796875,
 									"height": 13,
@@ -11587,7 +11647,7 @@
 												"$ref": "AAAAAAFjNsltusW0LwM="
 											},
 											"font": "Arial;13;0",
-											"left": 1261,
+											"left": 1325,
 											"top": 44,
 											"width": 182.2841796875,
 											"height": 13
@@ -11602,7 +11662,7 @@
 												"$ref": "AAAAAAFjNsl4dsW6aic="
 											},
 											"font": "Arial;13;0",
-											"left": 1261,
+											"left": 1325,
 											"top": 59,
 											"width": 182.2841796875,
 											"height": 13
@@ -11617,21 +11677,21 @@
 												"$ref": "AAAAAAFjNsmAWMXAUaY="
 											},
 											"font": "Arial;13;0",
-											"left": 1261,
+											"left": 1325,
 											"top": 74,
 											"width": 182.2841796875,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 1256,
+									"left": 1320,
 									"top": 39,
 									"width": 192.2841796875,
 									"height": 53
 								}
 							],
 							"font": "Arial;13;0",
-							"left": 1256,
+							"left": 1320,
 							"top": 16,
 							"width": 192.2841796875,
 							"height": 76,
@@ -11660,8 +11720,8 @@
 										"$ref": "AAAAAAFjNsF1cMRo+yA="
 									},
 									"font": "Arial;13;1",
-									"left": 1872,
-									"top": 13,
+									"left": 1888,
+									"top": 21,
 									"width": 192.2841796875,
 									"height": 13,
 									"text": "rank"
@@ -11686,8 +11746,8 @@
 												"$ref": "AAAAAAFjNscrg8WSEhQ="
 											},
 											"font": "Arial;13;0",
-											"left": 1877,
-											"top": 36,
+											"left": 1893,
+											"top": 44,
 											"width": 182.2841796875,
 											"height": 13
 										},
@@ -11701,8 +11761,8 @@
 												"$ref": "AAAAAAFjNshPVcWf/eg="
 											},
 											"font": "Arial;13;0",
-											"left": 1877,
-											"top": 51,
+											"left": 1893,
+											"top": 59,
 											"width": 182.2841796875,
 											"height": 13
 										},
@@ -11716,22 +11776,22 @@
 												"$ref": "AAAAAAFjNshY1cWl8RM="
 											},
 											"font": "Arial;13;0",
-											"left": 1877,
-											"top": 66,
+											"left": 1893,
+											"top": 74,
 											"width": 182.2841796875,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 1872,
-									"top": 31,
+									"left": 1888,
+									"top": 39,
 									"width": 192.2841796875,
 									"height": 53
 								}
 							],
 							"font": "Arial;13;0",
-							"left": 1872,
-							"top": 8,
+							"left": 1888,
+							"top": 16,
 							"width": 192.2841796875,
 							"height": 76,
 							"autoResize": true,
@@ -12505,8 +12565,8 @@
 										"$ref": "AAAAAAFk53lgVquo4Jc="
 									},
 									"font": "Roboto;14;1",
-									"left": 336,
-									"top": 261,
+									"left": 328,
+									"top": 397,
 									"width": 93.1181640625,
 									"height": 14,
 									"text": "author_genre"
@@ -12521,15 +12581,15 @@
 										"$ref": "AAAAAAFk53lgVqumPEc="
 									},
 									"font": "Roboto;14;0",
-									"left": 336,
-									"top": 280,
+									"left": 328,
+									"top": 416,
 									"width": 93.1181640625,
 									"height": 10
 								}
 							],
 							"font": "Roboto;14;0",
-							"left": 336,
-							"top": 256,
+							"left": 328,
+							"top": 392,
 							"width": 93.1181640625,
 							"height": 34,
 							"nameLabel": {
@@ -12608,7 +12668,7 @@
 									},
 									"font": "Roboto;14;1",
 									"left": 624,
-									"top": 333,
+									"top": 349,
 									"width": 83.3837890625,
 									"height": 14,
 									"text": "book_genre"
@@ -12624,14 +12684,14 @@
 									},
 									"font": "Roboto;14;0",
 									"left": 624,
-									"top": 352,
+									"top": 368,
 									"width": 83.3837890625,
 									"height": 10
 								}
 							],
 							"font": "Roboto;14;0",
 							"left": 624,
-							"top": 328,
+							"top": 344,
 							"width": 83.3837890625,
 							"height": 34,
 							"nameLabel": {
@@ -13007,7 +13067,7 @@
 						"$ref": "AAAAAAFjL8/pXxfEOts="
 					},
 					"name": "author",
-					"documentation": "# Author\n---\n### *Table containing information about the authors of books and series*\nThe table has no information about the genres and types the author has written. They are stored separately to avoid clutter of the table. (See DB -> author\\_genre, DB -> author\\_type)\n#### The table contains the following information about every author:\n\n- id\n\t- Primary Key.\n\t- Unique identifier in the form of an integer to represent each author.\n    - Authors are referenced by this integer in the application.\n    - Users have 3 favorite authors stored as IDs. *(See DB -> user)*\n    - Authors' genres in which they have written books in are stored in author\\_genre. author\\_genre has the same author\\_id as this id. *(e.g Author with id 3 will have its genres in author\\_genre under author\\_id 3)*\n    - Authors' types in which they have written books in are stored in author\\_type. author\\_type has the same author\\_id as this id. *(e.g Author with id 3 will have its types in author\\_type under author\\_id 3)*\n    - Books have author ID. *(See DB -> book)*\n    - Series have author ID. *(See DB -> series)*\n- name_original\n\t- The name of the author in its original language.\n    - Used as a backup when there is no translation of the name.\n    - This field should not be left empty.\n    - Users should set this to be the English name if they do not know the original name.\n    - name\\_original and all name\\_CC are not allowed to be all empty. At least one must be not empty.\n    - If this field is empty but one or more of the name\\_CC fields are not and this field is requested to be displayed the returned result will be randomly chosen from one of the name\\_CC fields that is not empty. *(e.g. if name\\_en is not empty it will be displayed instead of name_original)*\n- name_CC\n\t- The name of the author in the language CC. *(eg. name_bg is the name of the author in Bulgarian)*\n    - This field is left empty if no translation is available.\n    - If this field is empty and is requested to be displayed it will display name\\_original.\n- born_year\n\t- Year when the author was born in.\n    - Used for searching. *(e.g. Books written by authors who lived 1950-1960)* \n    - 0 if the date is unknown.\n- died_year\n\t- Year when the author died.\n    - 0 if the date is unknown.\n    - 9999 if the author is still alive.\n- country_id\n\t- ID of the country where the author was born. *(See DB -> country)*\n    - 0 if the country is unknown.\n- book_count\n\t- Number of books the author has in the DB.\n    - Used when searching the DB for books from this author to limit the search.\n    - Used to display how many books the author has without searching the DB for all of them.\n- series_count\n\t- Number of series the author has in the DB.\n    - Used when searching the DB for series from this author to limit the search.\n    - Used to display how many series the author has without searching the DB for all of them.\n- pen_name_original\n\t- The pen name of the author in its original language.\n    - Used as a backup when there is no translation of the pen name available.\n    - The same rules apply as for name\\_original. *(See DB -> author -> name\\_original)*\n- pen_name_CC\n\t- The pen name of the author in the language CC. *(eg. pen_name_bg is the name of the author in Bulgarian)*\n    - The same rules apply as for name\\_CC. *(See DB -> author -> name\\_CC)*\n- picture\n\t- A short url where the portrait of the author is stored.\n    - This field contains only the name of the file, not the full url.\n    - The url/directory where the pictures are stored is concatinated in the code together with this field to receive the full path where the picture is.\n    - Empty field if no picture is available.\n\n---\n#### Useful references\nHow the auhor class is implemented in the Java code:\n> *(Classes -> Author)*\n\nThe full list of CC (ISO codes, e.g. bg/en) can be found in the documentation:\n> *(Documentation -> Languages and Translation)*",
+					"documentation": "# Author\n---\n### *Table containing information about the authors of books and series*\nThe table has no information about the genres and types the author has written. They are stored separately to avoid clutter of the table. (See DB -> author\\_genre, DB -> author\\_type)\n#### The table contains the following information about every author:\n\n- id\n\t- Primary Key.\n\t- Unique identifier in the form of an integer to represent each author.\n    - Authors are referenced by this integer in the application.\n    - Users have 3 favorite authors stored as IDs. *(See DB -> user)*\n    - Authors' genres in which they have written books in are stored in author\\_genre. author\\_genre has the same author\\_id as this id. *(e.g Author with id 3 will have its genres in author\\_genre under author\\_id 3)*\n    - Authors' types in which they have written books in are stored in author\\_type. author\\_type has the same author\\_id as this id. *(e.g Author with id 3 will have its types in author\\_type under author\\_id 3)*\n    - Books have author ID. *(See DB -> book)*\n    - Series have author ID. *(See DB -> series)*\n- name_original\n\t- The name of the author in its original language.\n    - Used as a backup when there is no translation of the name.\n    - This field should not be left empty.\n    - Users should set this to be the English name if they do not know the original name.\n    - name\\_original and all name\\_CC are not allowed to be all empty. At least one must be not empty.\n    - If this field is empty but one or more of the name\\_CC fields are not and this field is requested to be displayed the returned result will be randomly chosen from one of the name\\_CC fields that is not empty. *(e.g. if name\\_en is not empty it will be displayed instead of name_original)*\n- name_CC\n\t- The name of the author in the language CC. *(eg. name_bg is the name of the author in Bulgarian)*\n    - This field is left empty if no translation is available.\n    - If this field is empty and is requested to be displayed it will display name\\_original.\n- born_year\n\t- Year when the author was born in.\n    - Used for searching. *(e.g. Books written by authors who lived 1950-1960)* \n    - 0 if the date is unknown.\n- died_year\n\t- Year when the author died.\n    - 0 if the date is unknown.\n    - 9999 if the author is still alive.\n- country_id\n\t- ID of the country where the author was born. *(See DB -> country)*\n    - 0 if the country is unknown.\n- book_count\n\t- Number of books the author has in the DB.\n    - Used when searching the DB for books from this author to limit the search.\n    - Used to display how many books the author has without searching the DB for all of them.\n- series_count\n\t- Number of series the author has in the DB.\n    - Used when searching the DB for series from this author to limit the search.\n    - Used to display how many series the author has without searching the DB for all of them.\n- pen_name_original\n\t- The pen name of the author in its original language.\n    - Used as a backup when there is no translation of the pen name available.\n    - The same rules apply as for name\\_original. *(See DB -> author -> name\\_original)*\n- pen_name_CC\n\t- The pen name of the author in the language CC. *(eg. pen_name_bg is the name of the author in Bulgarian)*\n    - The same rules apply as for name\\_CC. *(See DB -> author -> name\\_CC)*\n- picture\n\t- A short url where the portrait of the author is stored.\n    - This field contains only the name of the file, not the full url.\n    - The url/directory where the pictures are stored is concatinated in the code together with this field to receive the full path where the picture is.\n    - Empty field if no picture is available.\n- rating\n\t- A number of the accumulated rating from all users. (e.g if 3 users have given rating 3,7 and 8 - this field has value 18 = 3+7+8)\n    - This field is divided by rating\\_count to get the actual rating\n- rating_count\n\t- Number of people who have rated the author.\n    - This number is used to divide rating to get the actual rating of the author.\n\n---\n#### Useful references\nHow the auhor class is implemented in the Java code:\n> *(Classes -> Author)*\n\nThe full list of CC (ISO codes, e.g. bg/en) can be found in the documentation:\n> *(Documentation -> Languages and Translation)*",
 					"columns": [
 						{
 							"_type": "ERDColumn",
@@ -13136,6 +13196,26 @@
 							"name": "picture",
 							"type": "VARCHAR",
 							"length": "20"
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAFlOgQnu5TltMY=",
+							"_parent": {
+								"$ref": "AAAAAAFjMILL5Rj8jLE="
+							},
+							"name": "rating",
+							"type": "UNSIGNED INTEGER",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAFlOgQyX5TrPqM=",
+							"_parent": {
+								"$ref": "AAAAAAFjMILL5Rj8jLE="
+							},
+							"name": "rating_count",
+							"type": "INTEGER",
+							"length": 0
 						}
 					]
 				},
@@ -13146,7 +13226,7 @@
 						"$ref": "AAAAAAFjL8/pXxfEOts="
 					},
 					"name": "book",
-					"documentation": "# Book\n---\n### *Table containing information about the books*\nThe table has no information about the genres and types the book has. They are stored separately to avoid clutter of the table. (See DB -> book\\_genre, DB -> book\\_type)\n#### The table contains the following information about every book:\n\n- id\n\t- Primary Key.\n\t- Unique identifier in the form of an integer to represent each book.\n    - Books are referenced by this integer in the application.\n    - Users have 3 favorite books stored as IDs. *(See DB -> user)*\n\t- The genres of the book are stored in book\\_genre. book\\_genre has the same book\\_id as this id. *(e.g Book with id 3 will have its genres in book\\_genre where book\\_id is 3)*\n    - The types of the book are stored in book\\_type. book\\_type has the same book\\_id as this id. *(e.g Book with id 3 will have its types in book\\_type under where book\\_id is 3)*\n    - The summaries of the book are stored in book\\_summary. book\\_summary has the same book\\_id as this id. *(e.g Book with id 3 will have its summaries in book\\_summary where book\\_id is 3)*\n    - The reviews of the book are stored in book\\_review. Each review in book\\_review has the same book\\_id as this id if it is for this book. *(e.g Book with id 3 will have reviews in book\\_type where book\\_id is 3)*\n    - Users have custom books based off of these books by ID. Books in user\\_book have book\\_id the same as this one. *(e.g. If user is reading book with ID 3 they will have an entry in user\\_book with book\\_id is 3)* \n- chapters\n\t- Number of chapters the book has.\n    - 0 if unknown.\n- series_id\n\t- ID of the series the book belongs to.\n    - 0 if it is does not belong to any series.\n    - Table *series* has no information which books are in the given series. Only by finding all the books in this table with the given series\\_id can one see all the books which belong to a given series.\n- publish_year\n\t- Year when the book was published.\n    - 0 if unknown.\n    - 9999 if it has not been published yet.\n- language_id\n\t- ID of the language the book was originally written in. *(See DB -> language)*\n    - 0 if unknown.\n- country_id\n\t- ID of the country where the book was written.\n    - Empty if unknown.\n- rating\n\t- Rating of the book stored as an integer 0-100.\n    - The rating is calculated once a day by looking at all the books with the same ID as this one in user\\_book and calculating the average.\n- finished_count\n\t- Number of users who have finished reading the book.\n    - Used to calculate the popularity of the book.\n    - Used to limit the search in the DB.\n- reading_count\n\t- Number of users who are currently reading the book.\n    - Used to calculate the hotness of the book to suggest books who are being read now.\n    - Used to limit the search in the DB.\n- wishlist_count\n\t- Number of people who want to read the book.\n    - Used to suggest popular books.\n    - Used to limit the search in the DB.\n- dropped_count\n\t- Number of people who have dropped the book.\n    - Used to suggest NOT to read this book.\n    - Used to limit the search in the DB.\n- onhold_count\n\t- Number of people who have the book on hold.\n    - Used to limit the search in the DB.\n- review_count\n\t- Number of reviews the book has.\n    - Used to limit the search in the DB.\n- cover\n\t- A short url where the picture used as a cover for this book is stored.\n    - This field contains only the name of the file, not the full url.\n    - The url/directory where the pictures are stored is concatinated in the code together with this field to receive the full path where the picture is.\n    - Empty field if no picture is available.\n- name_original\n\t- Name of the book in its original language\n    - This field should not be left empty\n    - Users should set this to be the English name if they do not know the original name.\n    - The same rules apply as for author name\\_original. *(See DB -> author -> name\\_original)*\n- name_CC\n\t- The name of the book in the language CC. *(eg. name_bg is the name of the book in Bulgarian)*\n    - This field is left empty if no translation is available.\n    - The same rules apply as for author name\\_CC. *(See DB -> author -> name\\_CC)*\n- author_count\n\t- How many authors the series have.\n    - Used to limit the search in the DB.\n    \n---\n#### Useful references\nHow the book class is implemented in the Java code:\n> *(Classes -> Book)*\n\nThe full list of CC (ISO codes, e.g. bg/en) can be found in the documentation:\n> *(Documentation -> Languages and Translation)*\n",
+					"documentation": "# Book\n---\n### *Table containing information about the books*\nThe table has no information about the genres and types the book has. They are stored separately to avoid clutter of the table. (See DB -> book\\_genre, DB -> book\\_type)\n#### The table contains the following information about every book:\n\n- id\n\t- Primary Key.\n\t- Unique identifier in the form of an integer to represent each book.\n    - Books are referenced by this integer in the application.\n    - Users have 3 favorite books stored as IDs. *(See DB -> user)*\n\t- The genres of the book are stored in book\\_genre. book\\_genre has the same book\\_id as this id. *(e.g Book with id 3 will have its genres in book\\_genre where book\\_id is 3)*\n    - The types of the book are stored in book\\_type. book\\_type has the same book\\_id as this id. *(e.g Book with id 3 will have its types in book\\_type under where book\\_id is 3)*\n    - The summaries of the book are stored in book\\_summary. book\\_summary has the same book\\_id as this id. *(e.g Book with id 3 will have its summaries in book\\_summary where book\\_id is 3)*\n    - The reviews of the book are stored in book\\_review. Each review in book\\_review has the same book\\_id as this id if it is for this book. *(e.g Book with id 3 will have reviews in book\\_type where book\\_id is 3)*\n    - Users have custom books based off of these books by ID. Books in user\\_book have book\\_id the same as this one. *(e.g. If user is reading book with ID 3 they will have an entry in user\\_book with book\\_id is 3)* \n- chapters\n\t- Number of chapters the book has.\n    - 0 if unknown.\n- series_id\n\t- ID of the series the book belongs to.\n    - 0 if it is does not belong to any series.\n    - Table *series* has no information which books are in the given series. Only by finding all the books in this table with the given series\\_id can one see all the books which belong to a given series.\n- publish_year\n\t- Year when the book was published.\n    - 0 if unknown.\n    - 9999 if it has not been published yet.\n- language_id\n\t- ID of the language the book was originally written in. *(See DB -> language)*\n    - 0 if unknown.\n- country_id\n\t- ID of the country where the book was written.\n    - Empty if unknown.\n- rating\n\t- A number of the accumulated rating from all users. (e.g if 3 users have given rating 3,7 and 8 - this field has value 18 = 3+7+8)\n    - This field is divided by rating\\_count to get the actual rating.\n- rating_count\n\t- Number of people who have rated the book.\n    - This number is used to divide rating to get the actual rating of the book.\n- finished_count\n\t- Number of users who have finished reading the book.\n    - Used to calculate the popularity of the book.\n    - Used to limit the search in the DB.\n- reading_count\n\t- Number of users who are currently reading the book.\n    - Used to calculate the hotness of the book to suggest books who are being read now.\n    - Used to limit the search in the DB.\n- wishlist_count\n\t- Number of people who want to read the book.\n    - Used to suggest popular books.\n    - Used to limit the search in the DB.\n- dropped_count\n\t- Number of people who have dropped the book.\n    - Used to suggest NOT to read this book.\n    - Used to limit the search in the DB.\n- onhold_count\n\t- Number of people who have the book on hold.\n    - Used to limit the search in the DB.\n- review_count\n\t- Number of reviews the book has.\n    - Used to limit the search in the DB.\n- cover\n\t- A short url where the picture used as a cover for this book is stored.\n    - This field contains only the name of the file, not the full url.\n    - The url/directory where the pictures are stored is concatinated in the code together with this field to receive the full path where the picture is.\n    - Empty field if no picture is available.\n- name_original\n\t- Name of the book in its original language\n    - This field should not be left empty\n    - Users should set this to be the English name if they do not know the original name.\n    - The same rules apply as for author name\\_original. *(See DB -> author -> name\\_original)*\n- name_CC\n\t- The name of the book in the language CC. *(eg. name_bg is the name of the book in Bulgarian)*\n    - This field is left empty if no translation is available.\n    - The same rules apply as for author name\\_CC. *(See DB -> author -> name\\_CC)*\n- author_count\n\t- How many authors the series have.\n    - Used to limit the search in the DB.\n    \n---\n#### Useful references\nHow the book class is implemented in the Java code:\n> *(Classes -> Book)*\n\nThe full list of CC (ISO codes, e.g. bg/en) can be found in the documentation:\n> *(Documentation -> Languages and Translation)*\n",
 					"columns": [
 						{
 							"_type": "ERDColumn",
@@ -13215,7 +13295,17 @@
 								"$ref": "AAAAAAFjMILYBBkI7yU="
 							},
 							"name": "rating",
-							"type": "TINYINT",
+							"type": "UNSIGNED INTEGER",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAFlOhNFpJUSeo0=",
+							"_parent": {
+								"$ref": "AAAAAAFjMILYBBkI7yU="
+							},
+							"name": "rating_count",
+							"type": "INTEGER",
 							"length": 0
 						},
 						{
@@ -13701,7 +13791,7 @@
 						"$ref": "AAAAAAFjL8/pXxfEOts="
 					},
 					"name": "book_review",
-					"documentation": "# Book Review\n---\n### *Table containing the book reviews*\n\n#### The table contains the following information about every book:\n\n- id\n\t- Primary Key.\n\t- Unique identifier in the form of an integer to represent each book review.\n    - Book reviews are referenced by this integer in the application.\n- book_id\n\t- ID of the book the review is for.\n    - Cannot be empty.\n- user_id\n\t- ID of the user who wrote the review.\n    - Cannot be empty.\n- language_id\n\t- ID of the language the review was written in. *(See DB -> language)*\n    - 0 if Unknown.\n- text\n\t- The content of the review.\n- rating\n\t- Rating of the review stored as an integer 0-100.\n    - The rating is calculated once a day by browsing all the reviews with the same book\\_id as this one in user\\_review and calculating the average.\n\n---\n#### Useful references\n\nThe full list of CC (ISO codes, e.g. bg/en) can be found in the documentation:\n> *(Documentation -> Languages and Translation)*\n",
+					"documentation": "# Book Review\n---\n### *Table containing the book reviews*\n\n#### The table contains the following information about every book:\n\n- id\n\t- Primary Key.\n\t- Unique identifier in the form of an integer to represent each book review.\n    - Book reviews are referenced by this integer in the application.\n- book_id\n\t- ID of the book the review is for.\n    - Cannot be empty.\n- user_id\n\t- ID of the user who wrote the review.\n    - Cannot be empty.\n- language_id\n\t- ID of the language the review was written in. *(See DB -> language)*\n    - 0 if Unknown.\n- text\n\t- The content of the review.\n- rating\n\t- A number of the accumulated rating from all users. (e.g if 3 users have given rating 3,7 and 8 - this field has value 18 = 3+7+8)\n    - This field is divided by rating\\_count to get the actual rating.\n- rating_count\n\t- Number of people who have rated the review.\n    - This number is used to divide rating to get the actual rating of the review.\n\n---\n#### Useful references\n\nThe full list of CC (ISO codes, e.g. bg/en) can be found in the documentation:\n> *(Documentation -> Languages and Translation)*\n",
 					"columns": [
 						{
 							"_type": "ERDColumn",
@@ -13761,7 +13851,17 @@
 								"$ref": "AAAAAAFjNXJF48NgR9s="
 							},
 							"name": "rating",
-							"type": "TINYINT",
+							"type": "UNSIGNED INTEGER",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAFlOhPs+JUtgF4=",
+							"_parent": {
+								"$ref": "AAAAAAFjNXJF48NgR9s="
+							},
+							"name": "rating_count",
+							"type": "INTEGER",
 							"length": 0
 						}
 					]
