@@ -20,7 +20,10 @@ public class Friend {
         nickname = "Default";
         avatarLink = "none";
     }
-
+    Friend (int id)
+    {
+        ID = id;
+    }
     Friend(int id, boolean isOnline, String nickname, String avatarLink, Date lastOnline) {
         ID = id;
         this.isOnline = isOnline;

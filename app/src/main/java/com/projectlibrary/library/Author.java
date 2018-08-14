@@ -103,7 +103,7 @@ public class Author {
         return types;
     }
 
-    public int getId() {
+    public int getID() {
         return id;
     }
 }

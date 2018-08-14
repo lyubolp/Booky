@@ -46,6 +46,7 @@ public class User {
 
     private Rank rank;
 
+    private ArrayListAlgorithms sorter = new ArrayListAlgorithms();
     User() //Constructor
     {
 
@@ -195,50 +196,54 @@ public class User {
     public void addFinishedBook(int id)
     {
         Book temp = new Book(id);
-        finished.add(temp);
+        sorter.bookInsertById(finished, temp); //Inserting the book to be added, so that the list remains sorted
     }
     public void removeFinishedBook(int id)
     {
-        //TODO - as the rest
+        sorter.bookRemoveById(finished, id);
     }
 
     public void addReadingBook(int id)
     {
-
+        Book temp = new Book(id);
+        sorter.bookInsertById(reading, temp); //Inserting the book to be added, so that the list remains sorted
     }
     public void removeReadingBook(int id)
     {
-
+        sorter.bookRemoveById(reading, id);
     }
 
     public void addWishlistBook(int id)
     {
-
+        Book temp = new Book(id);
+        sorter.bookInsertById(wishlist, temp); //Inserting the book to be added, so that the list remains sorted
     }
 
     public void removeWishlistBook(int id)
     {
-
+        sorter.bookRemoveById(wishlist, id);
     }
 
     public void addDroppedBook(int id)
     {
-
+        Book temp = new Book(id);
+        sorter.bookInsertById(dropped, temp); //Inserting the book to be added, so that the list remains sorted
     }
 
     public void removeDroppedBook(int id)
     {
-
+        sorter.bookRemoveById(dropped, id);
     }
 
     public void addOnholdBook(int id)
     {
-
+        Book temp = new Book(id);
+        sorter.bookInsertById(onhold, temp); //Inserting the book to be added, so that the list remains sorted
     }
 
     public void removeOnholdBook(int id)
     {
-
+        sorter.bookRemoveById(onhold, id);
     }
 
     public void addFriend(int id)
@@ -265,33 +270,36 @@ public class User {
     public void addFavoriteBook(int id)
     {
         Book temp = new Book(id);
-        favoriteBooks.add(temp);
-
+        sorter.bookInsertById(favoriteBooks, temp); //Inserting the book to be added, so that the list remains sorted
 
     }
 
     public void removeFavoriteBook(int id)
     {
-
+        sorter.bookRemoveById(favoriteBooks, id);
     }
 
     public void addFavoriteGenre(int id)
     {
-
+        String genreName = "t"; //TODO - code here that gets the genre from the DB
+        favoriteGenres.add(genreName);
     }
 
     public void removeFavoriteGenre(int id)
     {
-
+        String genreName = "t"; //TODO - code here that gets the genre from the DB
+        favoriteGenres.remove(genreName);
     }
 
     public void addFavoriteType(int id)
     {
-
+        String typeName = "t"; //TODO - code here that gets the genre from the DB
+        favoriteTypes.add(typeName);
     }
     public void removeFavoriteType(int id)
     {
-
+        String typeName = "t"; //TODO - code here that gets the genre from the DB
+        favoriteTypes.remove(typeName);
     }
 
 

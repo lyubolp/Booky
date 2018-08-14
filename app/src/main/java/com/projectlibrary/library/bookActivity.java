@@ -26,14 +26,14 @@ public class bookActivity extends AppCompatActivity {
         JSONHandler js = new JSONHandler(loadJSONFromAsset());
         book = js.getBookAt(bookIdInt);
 
-        TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
+       /* TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
         tv.setText(book.getOriginalName() + " - " + book.getAuthor()); //Author is an int, when the DB is finished, will be a name
 
         tv = findViewById(R.id.bookYearPublished);
         tv.setText(book.getReleaseDate());
 
         tv = findViewById(R.id.bookGenre);
-        tv.setText(book.getGenres());
+        tv.setText(book.getGenres());*/
 
     }
     public String loadJSONFromAsset() {

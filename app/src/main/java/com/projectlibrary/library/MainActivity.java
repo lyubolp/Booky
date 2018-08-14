@@ -16,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.io.Console;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
-        //new JSONLoader().execute();
 
-        Log.d("Test", "Trying to read local file..");
+        playGround();
+
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         //This whole snippet of code handles the slide menu click event
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         /*TODO - there is probably a better way to get the text that was clicked
                           but for now, menuItem.toString() works
                         */
+
 
 
 
@@ -136,5 +139,38 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void playGround() //Testing some stuff
+    {
+        ArrayList<Book> books = new ArrayList<>();
+
+        Book b1 = new Book(1);
+        Book b2 = new Book(7);
+        Book b3 = new Book(5);
+        Book b4 = new Book(2);
+        Book b5 = new Book(9);
+        Book b6 = new Book(12);
+        Book b7 = new Book(6);
+
+        books.add(b1);
+        books.add(b2);
+        books.add(b3);
+        books.add(b4);
+        books.add(b5);
+        books.add(b6);
+
+
+
+
+        ArrayListAlgorithms ae = new ArrayListAlgorithms();
+
+        ae.bookSortById(books);
+
+        ae.bookInsertById(books, b7);
+
+        String t2 = Integer.toString(ae.bookFind(books, b7));
+        Log.d("Test", t2);
+
+
     }
 }
