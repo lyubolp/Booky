@@ -10,6 +10,19 @@ public class ArrayListAlgorithms {
 
     }
 
+    //Brief explanation on this class
+    //This class has some algorithms that work with the ArrayList conteiner.
+    //We have four different ArrayList containers, that contain the classes we have made.
+    //Also, its better when we insert, search, delete, etc. in those containers, that they are sorted
+    //We are using the bubble sort method, and the elements are sorted by their id
+    //They are functions for finding an object, inserting an object, or removing one by its id
+
+    //Q: Why not user templates ?
+    //A: The template type must inherit all classes - in order to do that, we need to have an abstract parent class, that is inherited by all others
+
+    //Q: Why not user the built-in sort feature
+    //A: Cause it requires a custom Comparer object, which requires android API level 21 (which is Android 7.0 or higher)
+
     public void bookSortById(ArrayList<Book> rhs) //Sorting the books by id
     {
         int s = rhs.size();

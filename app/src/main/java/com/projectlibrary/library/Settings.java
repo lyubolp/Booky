@@ -24,10 +24,6 @@ public class Settings {
         return singleton;
     }
 
-    /* Other methods protected by singleton-ness */
-    protected static void demoMethod( ) {
-        System.out.println("demoMethod for singleton");
-    }
 
     public int getAppLanguage() {
         return appLanguage;
@@ -79,5 +75,9 @@ public class Settings {
 
     public int getUser_id() {
         return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 }
