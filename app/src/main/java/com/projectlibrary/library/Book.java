@@ -41,11 +41,17 @@ public class Book {
     {
 
     }
-
     Book(int id)
+    {
+
+    }
+    Book(int id, short Rating, String Cover, String Name)
     {
         //Constructor by id, which gets the info by its self from the DB
         ID = id;
+        rating = Rating;
+        coverLink = Cover;
+        name = Name;
     }
     Book(int id, int seriesID, int finished, int reading, int wishlish, int dropped, int onhold, int reviewsCount, short chapters, short publishYear, short rating, short userRating, short userRereadValue, short userRereadCount, String nameOriginal, String name, String language, String country, String series, String coverLink, String summary, String userNote, ArrayList<String> authors, ArrayList<String> genres, ArrayList<String> types, ArrayList<Review> reviews) //Gets the book based on its id
     {

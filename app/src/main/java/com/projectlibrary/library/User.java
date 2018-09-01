@@ -47,6 +47,7 @@ public class User {
     private Rank rank;
 
     private ArrayListAlgorithms sorter = new ArrayListAlgorithms();
+
     User() //Constructor
     {
 
@@ -90,6 +91,8 @@ public class User {
         return ID;
     }
 
+
+
     public String getEmail()
     {
         return email;
@@ -119,6 +122,11 @@ public class User {
         this.city = city;
     }
 
+
+    public void setAvatarLink(String AvatarLink)
+    {
+        avatarLink = AvatarLink;
+    }
     public String getAvatarLink() {
         return avatarLink;
     }

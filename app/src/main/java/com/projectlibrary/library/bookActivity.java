@@ -23,8 +23,8 @@ public class bookActivity extends AppCompatActivity {
         //Log.d("JSON", "Trying to read local file..");
         //Log.d("JSON", loadJSONFromAsset());
 
-        JSONHandler js = new JSONHandler(loadJSONFromAsset());
-        book = js.getBookAt(bookIdInt);
+        //JSONHandler js = new JSONHandler(loadJSONFromAsset());
+        //book = js.getBookAt(bookIdInt);
 
        /* TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
         tv.setText(book.getOriginalName() + " - " + book.getAuthor()); //Author is an int, when the DB is finished, will be a name
@@ -36,7 +36,7 @@ public class bookActivity extends AppCompatActivity {
         tv.setText(book.getGenres());*/
 
     }
-    public String loadJSONFromAsset() {
+    /*public String loadJSONFromAsset() {
         String json = "none";
         try {
 
@@ -51,5 +51,5 @@ public class bookActivity extends AppCompatActivity {
             return null;
         }
         return json;
-    }
+    }*/
 }
