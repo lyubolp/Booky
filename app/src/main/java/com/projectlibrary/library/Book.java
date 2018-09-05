@@ -2,8 +2,19 @@ package com.projectlibrary.library;
 
 import java.util.ArrayList;
 
+
 public class Book {
 
+
+
+    enum BookStatus
+    {
+        Reading,
+        Finished,
+        Wishlist,
+        Dropped,
+        Onhold
+    }
     private int ID; //The ID of the book
     private int seriesID; //The series ID of the book
     private int finished; //The amount of users that have finished the book
@@ -34,8 +45,8 @@ public class Book {
     private ArrayList<String> genres; //The genres of the book
     private ArrayList<String> types; //The book types
     private ArrayList<Review> reviews; //The book reviews
-    //TODO - ArrayList<Status> userStatus - to be written
-    //TODO - Also write getter & setter for userStatus
+
+    private BookStatus userStatus;
 
     Book() //Constructor
     {
@@ -53,7 +64,7 @@ public class Book {
         coverLink = Cover;
         name = Name;
     }
-    Book(int id, int seriesID, int finished, int reading, int wishlish, int dropped, int onhold, int reviewsCount, short chapters, short publishYear, short rating, short userRating, short userRereadValue, short userRereadCount, String nameOriginal, String name, String language, String country, String series, String coverLink, String summary, String userNote, ArrayList<String> authors, ArrayList<String> genres, ArrayList<String> types, ArrayList<Review> reviews) //Gets the book based on its id
+    Book(int id, int seriesID, int finished, int reading, int wishlish, int dropped, int onhold, int reviewsCount, short chapters, short publishYear, short rating, short userRating, short userRereadValue, short userRereadCount, String nameOriginal, String name, String language, String country, String series, String coverLink, String summary, String userNote, ArrayList<String> authors, ArrayList<String> genres, ArrayList<String> types, ArrayList<Review> reviews, BookStatus userStatus) //Gets the book based on its id
     {
         ID = id;
         this.seriesID = seriesID;
@@ -81,6 +92,7 @@ public class Book {
         this.genres = genres;
         this.types = types;
         this.reviews = reviews;
+        this.userStatus = userStatus;
     }
 
     public int getID() {
@@ -210,5 +222,13 @@ public class Book {
     public void SetUserRereadCount(short UserRereadCount)
     {
         userRereadCount = UserRereadCount;
+    }
+
+    public BookStatus getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(BookStatus userStatus) {
+        this.userStatus = userStatus;
     }
 }

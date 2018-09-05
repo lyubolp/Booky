@@ -1,0 +1,346 @@
+<html>
+<head>
+<title>JSONHandler.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(98,151,85); font-style: italic; }
+.s3 { color: rgb(98,151,85); font-weight: bold; font-style: italic; }
+.s4 { color: rgb(119,183,103); font-style: italic; }
+.s5 { color: rgb(128,128,128); }
+.s6 { color: rgb(106,135,89); }
+.s7 { color: rgb(104,151,187); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+JSONHandler.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.projectlibrary.library</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s2">/** 
+ * </span><span class="s3">@author </span><span class="s2">Lyuboslav Karev 
+ * </span><span class="s3">@version </span><span class="s2">0.1 
+ * </span><span class="s3">@since </span><span class="s2">0.1 
+ */</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">android.util.Log</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">org.json.JSONArray</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">org.json.JSONException</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">org.json.JSONObject</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java.util.Iterator</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s0">import static </span><span class="s1">com.projectlibrary.library.MainActivity.currentUser</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s0">enum </span><span class="s1">QueryType 
+{ 
+    BookSmall</span><span class="s0">,</span><span class="s1"> 
+    BookFull</span><span class="s0">,</span><span class="s1"> 
+    UserAchievements</span><span class="s0">,</span><span class="s1"> 
+    BookNine</span><span class="s0">,</span><span class="s1"> 
+    BookSingle</span><span class="s0">,</span><span class="s1"> 
+    UserInfo</span><span class="s0">,</span><span class="s1"> 
+    UserSettings 
+} 
+</span><span class="s0">public class </span><span class="s1">JSONHandler { 
+    </span><span class="s2">/** 
+ 
+    </span><span class="s4">&lt;b&gt;</span><span class="s2">How to use this class</span><span class="s4">&lt;/b&gt;</span><span class="s2"> 
+    Get the users favorite books (cover, name, rating) - getFavoriteBooks(String) 
+    Get the users reading books (cover, name, rating) - getReadingBooks(String) 
+    Get the users wishlist books (cover, name, rating) - getWishlistBooks(String) 
+    Get the users dropped books (cover, name, rating) - getDroppedBooks(String) 
+    Get the users onhold books (cover, name, rating) - getOnHoldBooks(String) 
+    Get the users finished books (cover, name, rating) - getFinishedBooks() 
+ 
+    The following methods use the method fillArrayListBooksBasicInfo(String), 
+    which calls getBooks(). That method loads the JSONObject from the query result, 
+    so that the fillArrayList...() can fill an ArrayList with the basic info for a book. 
+    I've decided to use separate methods for the different type of books for two reasons. 
+    One - simplicity, two - in case we want to do something else before or after we parse the JSON. 
+ 
+    Get the users profile info (all information) 
+    Get the users friends list 
+    Get the users achievements 
+    Get all books by batches of 9 (full info) 
+    Get the reading books (cover, name, rating) 
+    Get book full info 
+    Get user settings 
+     */</span><span class="s1"> 
+    String JSONToHandle = </span><span class="s0">null;</span><span class="s1"> 
+    JSONArray books</span><span class="s0">;</span><span class="s1"> 
+    JSONObject userProfile</span><span class="s0">;</span><span class="s1"> 
+ 
+ 
+    JSONHandler(String json) </span><span class="s5">//Default constructor, do not use !</span><span class="s1"> 
+    { 
+        JSONToHandle = </span><span class="s6">&quot;Default&quot;</span><span class="s0">;</span><span class="s1"> 
+        getBooks(json)</span><span class="s0">;</span><span class="s1"> 
+    } 
+    </span><span class="s0">private void </span><span class="s1">getBooks(String json) 
+    { 
+        JSONObject reader</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">try</span><span class="s1"> 
+        { 
+            reader = </span><span class="s0">new </span><span class="s1">JSONObject(json)</span><span class="s0">;</span><span class="s1"> 
+ 
+            books = reader.getJSONArray(</span><span class="s6">&quot;Books&quot;</span><span class="s1">)</span><span class="s0">; </span><span class="s5">//We get all books in the JSON in an array</span><span class="s1"> 
+        } 
+        </span><span class="s0">catch </span><span class="s1">(JSONException e) 
+        { 
+            e.printStackTrace()</span><span class="s0">;</span><span class="s1"> 
+        } 
+    } 
+    </span><span class="s0">private </span><span class="s1">ArrayList&lt;Book&gt; fillArrayListBooksBasicInfo(String json) 
+    { 
+        getBooks(json)</span><span class="s0">;</span><span class="s1"> 
+        ArrayList&lt;Book&gt; result = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
+ 
+        </span><span class="s0">int </span><span class="s1">s = books.length()</span><span class="s0">;</span><span class="s1"> 
+ 
+        </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s7">0</span><span class="s0">; </span><span class="s1">i &lt; s</span><span class="s0">; </span><span class="s1">i++) { 
+            </span><span class="s0">try </span><span class="s1">{ 
+                JSONObject curBook = books.getJSONObject(i)</span><span class="s0">;</span><span class="s1"> 
+ 
+                </span><span class="s0">int </span><span class="s1">id = curBook.getInt(</span><span class="s6">&quot;id&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">rating = curBook.getInt(</span><span class="s6">&quot;rating&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                String cover = curBook.getString(</span><span class="s6">&quot;cover&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                String name_bg = curBook.getString(</span><span class="s6">&quot;name_bg&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+ 
+ 
+                Book r = </span><span class="s0">new </span><span class="s1">Book(id</span><span class="s0">, </span><span class="s1">(</span><span class="s0">short</span><span class="s1">) rating</span><span class="s0">, </span><span class="s1">cover</span><span class="s0">, </span><span class="s1">name_bg)</span><span class="s0">;</span><span class="s1"> 
+                result.add(r)</span><span class="s0">;</span><span class="s1"> 
+ 
+            } </span><span class="s0">catch </span><span class="s1">(JSONException e) { 
+                e.printStackTrace()</span><span class="s0">;</span><span class="s1"> 
+            } 
+        } 
+        </span><span class="s0">return </span><span class="s1">result</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+ 
+    ArrayList&lt;Book&gt; getFavoriteBooks(String json) 
+    { 
+        </span><span class="s0">return </span><span class="s1">fillArrayListBooksBasicInfo(json)</span><span class="s0">;</span><span class="s1"> 
+    } 
+    ArrayList&lt;Book&gt; getReadingBooks(String json) 
+    { 
+        </span><span class="s0">return </span><span class="s1">fillArrayListBooksBasicInfo(json)</span><span class="s0">;</span><span class="s1"> 
+    } 
+    ArrayList&lt;Book&gt; getWishlishBooks(String json) 
+    { 
+        </span><span class="s0">return </span><span class="s1">fillArrayListBooksBasicInfo(json)</span><span class="s0">;</span><span class="s1"> 
+    } 
+    ArrayList&lt;Book&gt; getDroppedBooks(String json) 
+    { 
+        </span><span class="s0">return </span><span class="s1">fillArrayListBooksBasicInfo(json)</span><span class="s0">;</span><span class="s1"> 
+    } 
+    ArrayList&lt;Book&gt; getOnHoldBooks(String json) 
+    { 
+        </span><span class="s0">return </span><span class="s1">fillArrayListBooksBasicInfo(json)</span><span class="s0">;</span><span class="s1"> 
+    } 
+    ArrayList&lt;Book&gt; getFinishedBooks(String json) 
+    { 
+        </span><span class="s0">return </span><span class="s1">fillArrayListBooksBasicInfo(json)</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    ArrayList&lt;Book&gt; getAllBooks() 
+    { 
+        ArrayList&lt;Book&gt; result = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">int </span><span class="s1">s = books.length()</span><span class="s0">;</span><span class="s1"> 
+ 
+        </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s7">0</span><span class="s0">; </span><span class="s1">i &lt; s</span><span class="s0">; </span><span class="s1">i++) 
+        { 
+            </span><span class="s0">try </span><span class="s1">{ 
+                JSONObject curBook = books.getJSONObject(i)</span><span class="s0">;</span><span class="s1"> 
+ 
+                </span><span class="s0">int </span><span class="s1">id = curBook.getInt(</span><span class="s6">&quot;id&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">chapters = curBook.getInt(</span><span class="s6">&quot;chapters&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">series_id = curBook.getInt(</span><span class="s6">&quot;series_id&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">publish_year = curBook.getInt(</span><span class="s6">&quot;publish_year&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">language_id = curBook.getInt(</span><span class="s6">&quot;language_id&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">country_id = curBook.getInt(</span><span class="s6">&quot;country_id&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">rating = curBook.getInt(</span><span class="s6">&quot;rating&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">rating_count = curBook.getInt(</span><span class="s6">&quot;rating_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">finished_count  = curBook.getInt(</span><span class="s6">&quot;finished_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">reading_count = curBook.getInt(</span><span class="s6">&quot;reading_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">wishlist_count = curBook.getInt(</span><span class="s6">&quot;wishlist_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">dropped_count = curBook.getInt(</span><span class="s6">&quot;dropped_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">onhold_count = curBook.getInt(</span><span class="s6">&quot;onhold_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">review_count = curBook.getInt(</span><span class="s6">&quot;review_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                String cover = curBook.getString(</span><span class="s6">&quot;cover&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                String name_original = curBook.getString(</span><span class="s6">&quot;name_original&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                String name_bg = curBook.getString(</span><span class="s6">&quot;name_bg&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                String name_en = curBook.getString(</span><span class="s6">&quot;name_en&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">int </span><span class="s1">author_count = curBook.getInt(</span><span class="s6">&quot;author_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+ 
+                </span><span class="s0">short </span><span class="s1">userRating = </span><span class="s7">0</span><span class="s0">, </span><span class="s1">userRereadValue = </span><span class="s7">0</span><span class="s0">, </span><span class="s1">userRereadCount = </span><span class="s7">0</span><span class="s0">;</span><span class="s1"> 
+                String language = </span><span class="s6">&quot;&quot;</span><span class="s0">, </span><span class="s1">country = </span><span class="s6">&quot;&quot;</span><span class="s0">, </span><span class="s1">series = </span><span class="s6">&quot;&quot;</span><span class="s0">, </span><span class="s1">summary = </span><span class="s6">&quot;&quot;</span><span class="s0">, </span><span class="s1">userNote = </span><span class="s6">&quot;&quot;</span><span class="s0">;</span><span class="s1"> 
+                ArrayList&lt;String&gt; authors = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">, </span><span class="s1">genres = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">, </span><span class="s1">types = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
+                ArrayList&lt;Review&gt; reviews = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
+ 
+                </span><span class="s5">//TODO - Get the userRating, userRereadValue, userRereadCount, userNote, userStatus, language,</span><span class="s1"> 
+                </span><span class="s5">//TODO - county_id, series_id, summary from the DB</span><span class="s1"> 
+                Book r = </span><span class="s0">new </span><span class="s1">Book(id</span><span class="s0">,</span><span class="s1">series_id</span><span class="s0">, </span><span class="s1">finished_count</span><span class="s0">, </span><span class="s1">reading_count</span><span class="s0">,</span><span class="s1">wishlist_count</span><span class="s0">, </span><span class="s1">dropped_count</span><span class="s0">,</span><span class="s1"> 
+                        onhold_count</span><span class="s0">, </span><span class="s1">review_count</span><span class="s0">, </span><span class="s1">(</span><span class="s0">short</span><span class="s1">)chapters</span><span class="s0">,</span><span class="s1">(</span><span class="s0">short</span><span class="s1">)publish_year</span><span class="s0">, </span><span class="s1">(</span><span class="s0">short</span><span class="s1">)rating</span><span class="s0">, </span><span class="s1">userRating</span><span class="s0">,</span><span class="s1"> 
+                        userRereadValue</span><span class="s0">,</span><span class="s1">userRereadCount</span><span class="s0">, </span><span class="s1">name_original</span><span class="s0">,</span><span class="s1"> 
+                        name_bg</span><span class="s0">, </span><span class="s1">language</span><span class="s0">, </span><span class="s1">country</span><span class="s0">, </span><span class="s1">series</span><span class="s0">, </span><span class="s1">cover</span><span class="s0">, </span><span class="s1">summary</span><span class="s0">,</span><span class="s1">userNote</span><span class="s0">,</span><span class="s1">authors</span><span class="s0">, </span><span class="s1">genres</span><span class="s0">, </span><span class="s1">types</span><span class="s0">, </span><span class="s1">reviews )</span><span class="s0">;</span><span class="s1"> 
+                result.add(r)</span><span class="s0">;</span><span class="s1"> 
+ 
+            } </span><span class="s0">catch </span><span class="s1">(JSONException e) { 
+                e.printStackTrace()</span><span class="s0">;</span><span class="s1"> 
+            } 
+ 
+        } 
+        </span><span class="s0">return </span><span class="s1">result</span><span class="s0">;</span><span class="s1"> 
+ 
+    } 
+    Book getBookAt(</span><span class="s0">int </span><span class="s1">id) 
+    { 
+ 
+        Book result = </span><span class="s0">new </span><span class="s1">Book()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s7">0</span><span class="s0">; </span><span class="s1">i &lt; books.length()</span><span class="s0">; </span><span class="s1">i++) 
+        { 
+            </span><span class="s0">try </span><span class="s1">{ 
+                JSONObject curBook = books.getJSONObject(i)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">if</span><span class="s1">(Integer.parseInt(curBook.getString(</span><span class="s6">&quot;id&quot;</span><span class="s1">)) == id) 
+                { 
+                    </span><span class="s0">int </span><span class="s1">chapters = curBook.getInt(</span><span class="s6">&quot;chapters&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">series_id = curBook.getInt(</span><span class="s6">&quot;series_id&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">publish_year = curBook.getInt(</span><span class="s6">&quot;publish_year&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">language_id = curBook.getInt(</span><span class="s6">&quot;language_id&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">country_id = curBook.getInt(</span><span class="s6">&quot;country_id&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">rating = curBook.getInt(</span><span class="s6">&quot;rating&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">rating_count = curBook.getInt(</span><span class="s6">&quot;rating_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">finished_count  = curBook.getInt(</span><span class="s6">&quot;finished_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">reading_count = curBook.getInt(</span><span class="s6">&quot;reading_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">wishlist_count = curBook.getInt(</span><span class="s6">&quot;wishlist_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">dropped_count = curBook.getInt(</span><span class="s6">&quot;dropped_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">onhold_count = curBook.getInt(</span><span class="s6">&quot;onhold_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">review_count = curBook.getInt(</span><span class="s6">&quot;review_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    String cover = curBook.getString(</span><span class="s6">&quot;cover&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    String name_original = curBook.getString(</span><span class="s6">&quot;name_original&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    String name_bg = curBook.getString(</span><span class="s6">&quot;name_bg&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    String name_en = curBook.getString(</span><span class="s6">&quot;name_en&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">int </span><span class="s1">author_count = curBook.getInt(</span><span class="s6">&quot;author_count&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+ 
+                    </span><span class="s0">short </span><span class="s1">userRating = </span><span class="s7">0</span><span class="s0">, </span><span class="s1">userRereadValue = </span><span class="s7">0</span><span class="s0">, </span><span class="s1">userRereadCount = </span><span class="s7">0</span><span class="s0">;</span><span class="s1"> 
+                    String language = </span><span class="s6">&quot;&quot;</span><span class="s0">, </span><span class="s1">country = </span><span class="s6">&quot;&quot;</span><span class="s0">, </span><span class="s1">series = </span><span class="s6">&quot;&quot;</span><span class="s0">, </span><span class="s1">summary = </span><span class="s6">&quot;&quot;</span><span class="s0">, </span><span class="s1">userNote = </span><span class="s6">&quot;&quot;</span><span class="s0">;</span><span class="s1"> 
+                    ArrayList&lt;String&gt; authors = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">, </span><span class="s1">genres = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">, </span><span class="s1">types = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
+                    ArrayList&lt;Review&gt; reviews = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
+ 
+                    </span><span class="s5">//TODO - Get the userRating, userRereadValue, userRereadCount, userNote, userStatus, language,</span><span class="s1"> 
+                    </span><span class="s5">//TODO - county_id, series_id, summary from the DB</span><span class="s1"> 
+                    Book r = </span><span class="s0">new </span><span class="s1">Book(id</span><span class="s0">,</span><span class="s1">series_id</span><span class="s0">, </span><span class="s1">finished_count</span><span class="s0">, </span><span class="s1">reading_count</span><span class="s0">,</span><span class="s1">wishlist_count</span><span class="s0">, </span><span class="s1">dropped_count</span><span class="s0">,</span><span class="s1"> 
+                            onhold_count</span><span class="s0">, </span><span class="s1">review_count</span><span class="s0">, </span><span class="s1">(</span><span class="s0">short</span><span class="s1">)chapters</span><span class="s0">,</span><span class="s1">(</span><span class="s0">short</span><span class="s1">)publish_year</span><span class="s0">, </span><span class="s1">(</span><span class="s0">short</span><span class="s1">)rating</span><span class="s0">, </span><span class="s1">userRating</span><span class="s0">,</span><span class="s1"> 
+                            userRereadValue</span><span class="s0">,</span><span class="s1">userRereadCount</span><span class="s0">, </span><span class="s1">name_original</span><span class="s0">,</span><span class="s1"> 
+                            name_bg</span><span class="s0">, </span><span class="s1">language</span><span class="s0">, </span><span class="s1">country</span><span class="s0">, </span><span class="s1">series</span><span class="s0">, </span><span class="s1">cover</span><span class="s0">, </span><span class="s1">summary</span><span class="s0">,</span><span class="s1">userNote</span><span class="s0">,</span><span class="s1">authors</span><span class="s0">, </span><span class="s1">genres</span><span class="s0">, </span><span class="s1">types</span><span class="s0">, </span><span class="s1">reviews )</span><span class="s0">;</span><span class="s1"> 
+                    </span><span class="s0">return </span><span class="s1">r</span><span class="s0">;</span><span class="s1"> 
+                } 
+            } </span><span class="s0">catch </span><span class="s1">(JSONException e) { </span><span class="s5">//This is required, in case the JSON blows up</span><span class="s1"> 
+                e.printStackTrace()</span><span class="s0">;</span><span class="s1"> 
+            } 
+        } 
+        </span><span class="s0">return </span><span class="s1">result</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">private void </span><span class="s1">getUserProfile(String json) 
+    { 
+        JSONObject reader</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">try</span><span class="s1"> 
+        { 
+            reader = </span><span class="s0">new </span><span class="s1">JSONObject(json)</span><span class="s0">;</span><span class="s1"> 
+ 
+            userProfile = reader.getJSONObject(</span><span class="s6">&quot;User&quot;</span><span class="s1">)</span><span class="s0">; </span><span class="s5">//We get the user info in the JSON in an object</span><span class="s1"> 
+            currentUser.setLevel(userProfile.getInt(</span><span class="s6">&quot;level&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.setBirthDate((</span><span class="s0">short</span><span class="s1">)userProfile.getInt(</span><span class="s6">&quot;birth_year&quot;</span><span class="s1">)</span><span class="s0">, </span><span class="s1">(</span><span class="s0">short</span><span class="s1">)userProfile.getInt(</span><span class="s6">&quot;birth_month&quot;</span><span class="s1">)</span><span class="s0">, </span><span class="s1">(</span><span class="s0">short</span><span class="s1">)userProfile.getInt(</span><span class="s6">&quot;birth_day&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.setEmail(userProfile.getString(</span><span class="s6">&quot;email&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.setNickname(userProfile.getString(</span><span class="s6">&quot;nickname&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.setCity(userProfile.getString(</span><span class="s6">&quot;city&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.setAvatarLink(userProfile.getString(</span><span class="s6">&quot;avatar&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+ 
+            JSONArray achievemnts = userProfile.getJSONArray(</span><span class="s6">&quot;achievemnts&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">int </span><span class="s1">s = achievemnts.length()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s7">0</span><span class="s0">; </span><span class="s1">i &lt; s</span><span class="s0">; </span><span class="s1">i++) 
+            { 
+                currentUser.addAchievement(achievemnts.getInt(i))</span><span class="s0">;</span><span class="s1"> 
+            } 
+ 
+            currentUser.addFavoriteAuthor(userProfile.getInt(</span><span class="s6">&quot;favourite_author_id_1&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.addFavoriteAuthor(userProfile.getInt(</span><span class="s6">&quot;favourite_author_id_2&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.addFavoriteAuthor(userProfile.getInt(</span><span class="s6">&quot;favourite_author_id_3&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+ 
+            JSONArray finishedBooks = userProfile.getJSONArray(</span><span class="s6">&quot;finished&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            s = finishedBooks.length()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s7">0</span><span class="s0">; </span><span class="s1">i &lt; s</span><span class="s0">; </span><span class="s1">i++) 
+            { 
+                currentUser.addFinishedBook(finishedBooks.getInt(i))</span><span class="s0">;</span><span class="s1"> 
+            } 
+ 
+            JSONArray readingBooks = userProfile.getJSONArray(</span><span class="s6">&quot;reading&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            s = readingBooks.length()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s7">0</span><span class="s0">; </span><span class="s1">i &lt; s</span><span class="s0">; </span><span class="s1">i++) 
+            { 
+                currentUser.addReadingBook(finishedBooks.getInt(i))</span><span class="s0">;</span><span class="s1"> 
+            } 
+ 
+            JSONArray wishlistBooks = userProfile.getJSONArray(</span><span class="s6">&quot;wishlist&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            s = wishlistBooks.length()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s7">0</span><span class="s0">; </span><span class="s1">i &lt; s</span><span class="s0">; </span><span class="s1">i++) 
+            { 
+                currentUser.addWishlistBook(finishedBooks.getInt(i))</span><span class="s0">;</span><span class="s1"> 
+            } 
+ 
+            JSONArray droppedBooks = userProfile.getJSONArray(</span><span class="s6">&quot;dropped&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            s = droppedBooks.length()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s7">0</span><span class="s0">; </span><span class="s1">i &lt; s</span><span class="s0">; </span><span class="s1">i++) 
+            { 
+                currentUser.addReadingBook(finishedBooks.getInt(i))</span><span class="s0">;</span><span class="s1"> 
+            } 
+ 
+            JSONArray onholdBooks = userProfile.getJSONArray(</span><span class="s6">&quot;onhold&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            s = readingBooks.length()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s7">0</span><span class="s0">; </span><span class="s1">i &lt; s</span><span class="s0">; </span><span class="s1">i++) 
+            { 
+                currentUser.addReadingBook(finishedBooks.getInt(i))</span><span class="s0">;</span><span class="s1"> 
+            } 
+ 
+            currentUser.addFavoriteBook(userProfile.getInt(</span><span class="s6">&quot;favourite_book_id_1&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.addFavoriteBook(userProfile.getInt(</span><span class="s6">&quot;favourite_book_id_2&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.addFavoriteBook(userProfile.getInt(</span><span class="s6">&quot;favourite_book_id_3&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+ 
+            </span><span class="s5">//TODO - Friends &amp; Reviews will be done later</span><span class="s1"> 
+ 
+            currentUser.addFavoriteGenre(userProfile.getInt(</span><span class="s6">&quot;favourite_genre_id_1&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.addFavoriteGenre(userProfile.getInt(</span><span class="s6">&quot;favourite_genre_id_2&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.addFavoriteGenre(userProfile.getInt(</span><span class="s6">&quot;favourite_genre_id_3&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+ 
+            currentUser.addFavoriteType(userProfile.getInt(</span><span class="s6">&quot;favourite_type_id_1&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.addFavoriteType(userProfile.getInt(</span><span class="s6">&quot;favourite_type_id_2&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            currentUser.addFavoriteType(userProfile.getInt(</span><span class="s6">&quot;favourite_type_id_3&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+ 
+            </span><span class="s5">//TODO - Rank will be done later</span><span class="s1"> 
+        } 
+        </span><span class="s0">catch </span><span class="s1">(JSONException e) 
+        { 
+            e.printStackTrace()</span><span class="s0">;</span><span class="s1"> 
+        } 
+    } 
+ 
+    </span><span class="s5">//TODO - Friends will be done later</span><span class="s1"> 
+    </span><span class="s5">//TODO - Achievements will be done later</span><span class="s1"> 
+ 
+ 
+ 
+ 
+} 
+</span></pre>
+</body>
+</html>

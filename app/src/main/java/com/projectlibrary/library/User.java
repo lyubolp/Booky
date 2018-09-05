@@ -179,6 +179,7 @@ public class User {
         return favoriteTypes;
     }
 
+
     public Rank getRank() {
         return rank;
     }
@@ -196,7 +197,6 @@ public class User {
     }
 
     //TODO - all methods below are not finished. The code that gets the info from the DB should be added
-    //TODO - also, sort & search should be done too
     public void addAchievement(int id)
     {
         //TODO - write the code that gets an achievement from the DB
