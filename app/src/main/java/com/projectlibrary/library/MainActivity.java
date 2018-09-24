@@ -57,10 +57,6 @@ public class MainActivity extends AppCompatActivity {
                         /*TODO - there is probably a better way to get the text that was clicked
                           but for now, menuItem.toString() works
                         */
-
-
-
-
                         switch (menuItem.toString())
                         {
                             case "Библиотека":

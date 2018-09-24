@@ -13,8 +13,20 @@
     <string name="bookPlaceholderName">Произведение - Автор</string>
     <string name="bookPlaceholderGenre">Жанр - Жанр</string>
     <string name="bookPlaceholderYearPublished">Година на издаване - 2018г.</string>
-    <string name="bookStateRead">Прочетена</string>
-    <string name="bookStateReading">В момента чете</string>
-    <string name="bookStateWishlist">В списък с желания</string>
-    <string name="bookStateDropped">Непрочетена</string>
+
+    <string-array name="bookState">
+        <!--
+        Reading,
+        Finished,
+        Wishlist,
+        Dropped,
+        Onhold
+        -->
+        <item>В момента чете</item>
+        <item>Прочетена</item>
+        <item>В списък с желания</item>
+        <item>Непрочетена</item>
+        <item>Оставена</item>
+    </string-array>
+
 </resources>

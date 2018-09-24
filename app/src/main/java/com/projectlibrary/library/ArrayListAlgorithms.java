@@ -64,6 +64,29 @@ public class ArrayListAlgorithms {
             }
         }
         return mid;
+    }
+    public Book returnBookById(ArrayList<Book> rhs, int id)
+    {
+        int start = 0, mid = rhs.size() /2, end = rhs.size() ;
+
+        while(id != rhs.get(mid).getID())
+        {
+            if(id > rhs.get(mid).getID())
+            {
+                start = mid;
+                mid = (start + end) /2;
+            }
+            else if(id < rhs.get(mid).getID())
+            {
+                end = mid;
+                mid = (start + end) / 2;
+            }
+            else
+            {
+                return rhs.get(mid);
+            }
+        }
+        return rhs.get(mid);
 
     }
     public void bookInsertById(ArrayList<Book> rhs, Book b)

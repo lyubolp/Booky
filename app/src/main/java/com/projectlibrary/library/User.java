@@ -14,6 +14,8 @@ public class User {
         Rookie
     }
 
+    public static User Instance = new User();
+
     private int ID;
     private int level; //The account level
 
@@ -48,11 +50,12 @@ public class User {
 
     private ArrayListAlgorithms sorter = new ArrayListAlgorithms();
 
-    User() //Constructor
+
+    public User() //Constructor
     {
 
     }
-    User(int id, int level, short birthYear, short birthMonth, short birthDay, String email, String nickname, String city, String avatarLink, ArrayList<Achievement> achievements, ArrayList<Author> favoriteAuthors, ArrayList<Book> finished, ArrayList<Book> reading, ArrayList<Book> wishlist, ArrayList<Book> dropped, ArrayList<Book> onhold, ArrayList<Book> favoriteBooks, ArrayList<Friend> friends, ArrayList<Review> reviews, ArrayList<String> favoriteGenres, ArrayList<String> favoriteTypes, Rank rank)
+    public User(int id, int level, short birthYear, short birthMonth, short birthDay, String email, String nickname, String city, String avatarLink, ArrayList<Achievement> achievements, ArrayList<Author> favoriteAuthors, ArrayList<Book> finished, ArrayList<Book> reading, ArrayList<Book> wishlist, ArrayList<Book> dropped, ArrayList<Book> onhold, ArrayList<Book> favoriteBooks, ArrayList<Friend> friends, ArrayList<Review> reviews, ArrayList<String> favoriteGenres, ArrayList<String> favoriteTypes, Rank rank)
     {
         ID = id;
         this.level = level;
@@ -195,6 +198,15 @@ public class User {
         birthMonth =  m;
         birthDay = d;
     }
+
+    public void setReadingBooks(ArrayList<Book> books)
+    {
+        reading = books;
+    }
+
+
+
+
 
     //TODO - all methods below are not finished. The code that gets the info from the DB should be added
     public void addAchievement(int id)

@@ -18,9 +18,6 @@ public class Author {
     private String penName; //The pen name of the author
     private String pictureLink; //The link to the author's picture
 
-    private ArrayList<String> genres; //The genres that author writes
-    private ArrayList<String> types; //The type of books that the author writes
-
     Author() //Default constructor
     {
         id = -1;
@@ -38,7 +35,7 @@ public class Author {
 
     }
 
-    Author(int ID, short bornYear, short diedYear, short bookCount, short seriesCount, short userRating, String name, String name_original, String country, String penName, String pictureLink, ArrayList<String> genres, ArrayList<String> types)
+    Author(int ID, short bornYear, short diedYear, short bookCount, short seriesCount, short userRating, String name, String name_original, String country, String penName, String pictureLink)
     {
         id =  ID;
         this.bornYear = bornYear;
@@ -51,8 +48,6 @@ public class Author {
         this.country = country;
         this.penName = penName;
         this.pictureLink = pictureLink;
-        this.genres = genres;
-        this.types = types;
     }
 
     public short getBornYear() {
@@ -95,13 +90,6 @@ public class Author {
         return pictureLink;
     }
 
-    public ArrayList<String> getGenres() {
-        return genres;
-    }
-
-    public ArrayList<String> getTypes() {
-        return types;
-    }
 
     public int getID() {
         return id;

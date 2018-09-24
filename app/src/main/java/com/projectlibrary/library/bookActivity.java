@@ -18,29 +18,35 @@ public class bookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_book);
 
         String bookId= getIntent().getStringExtra("OPENED_BOOK");
+        ArrayListAlgorithms arrayListAlgorithms = new ArrayListAlgorithms();
         int bookIdInt = Integer.parseInt(bookId);
 
-        //Log.d("JSON", "Trying to read local file..");
-        //Log.d("JSON", loadJSONFromAsset());
+        Log.d("Test", bookId);
 
-        //JSONHandler js = new JSONHandler(loadJSONFromAsset());
-        //book = js.getBookAt(bookIdInt);
+        JSONHandler js = new JSONHandler(loadJSONFromAsset(), QueryType.BookSingle);
+        Log.d("JSON", loadJSONFromAsset());
 
-       /* TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
-        tv.setText(book.getOriginalName() + " - " + book.getAuthor()); //Author is an int, when the DB is finished, will be a name
+        //@TODO This is temp code, when the API is finished, we will request full book info
+        book = js.getSingleBook();
 
-        tv = findViewById(R.id.bookYearPublished);
-        tv.setText(book.getReleaseDate());
 
-        tv = findViewById(R.id.bookGenre);
-        tv.setText(book.getGenres());*/
+
+       TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
+        tv.setText(book.getName() + " - " + book.getAuthors().get(0).getName());
+
+       TextView tv2 = findViewById(R.id.bookYearPublished);
+        tv2.setText("Година на издаване - " + Integer.toString(book.getPublishYear()) + "г.");
+
+       TextView tv3 = findViewById(R.id.bookGenre);
+        tv3.setText("Жанр - " + book.getGenres());
 
     }
-    /*public String loadJSONFromAsset() {
-        String json = "none";
+    //@TODO - This is a temp function
+    public String loadJSONFromAsset() {
+        String json = null;
         try {
 
-            InputStream is = getResources().openRawResource(R.raw.test);
+            InputStream is = getResources().openRawResource(R.raw.get_book_by_id);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -51,5 +57,5 @@ public class bookActivity extends AppCompatActivity {
             return null;
         }
         return json;
-    }*/
+    }
 }

@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static com.projectlibrary.library.MainActivity.currentUser;
@@ -59,99 +60,184 @@ public class JSONHandler {
      */
     private String JSONToHandle = null;
     private JSONArray books;
+    private JSONObject singleBook;
     private JSONObject userProfile;
+    public ArrayListAlgorithms arrayListAlgorithms;
+    JSONHandler()
+    {
 
-
-    JSONHandler(String json) //Default constructor, do not use !
+    }
+    JSONHandler(String json, QueryType queryType) //Default constructor, do not use !
     {
         JSONToHandle = "Default";
-        getBooks(json);
+        if(queryType == QueryType.BookFull || queryType == QueryType.BookSingle || queryType == QueryType.BookSmall || queryType == QueryType.BookNine )
+        {
+            getBooks(json, queryType);
+        }
+        else
+        {
+            //Fill other containers
+        }
+
     }
-    private void getBooks(String json)
+
+    /**
+     * BASE METHODS
+     * All other methods use those base ones
+     */
+    private void getBooks(String json, QueryType queryType) //Ready
     {
         JSONObject reader;
         try
         {
             reader = new JSONObject(json);
 
-            books = reader.getJSONArray("Books"); //We get all books in the JSON in an array
+            if(queryType == QueryType.BookSingle)
+            {
+                singleBook = reader.getJSONObject("R");
+            }
+            else
+            {
+                books = reader.getJSONArray("R"); //We get all books and the info in the JSON in an array
+            }
         }
         catch (JSONException e)
         {
             e.printStackTrace();
         }
     }
-    private ArrayList<Book> fillArrayListBooksBasicInfo(String json)
+    private Book getBookBasicInfo(JSONObject curBook)
     {
-        getBooks(json);
+        JSONObject book, translation;
+        Book r = new Book();
+        try {
+            book = curBook.getJSONObject("book");
+            translation = curBook.getJSONObject("translation");
+
+            int id = book.getInt("id");
+            int rating = book.getInt("rating");
+            String cover = book.getString("cover");
+            String name_bg = translation.getString("bg");
+
+
+            r = new Book(id, (short) rating, cover, name_bg);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return r;
+    }
+    private ArrayList<Book> fillArrayListBooksBasicInfo() //Ready
+    {
         ArrayList<Book> result = new ArrayList<>();
 
         int s = books.length();
-
         for(int i = 0; i < s; i++) {
             try {
-                JSONObject curBook = books.getJSONObject(i);
-
-                int id = curBook.getInt("id");
-                int rating = curBook.getInt("rating");
-                String cover = curBook.getString("cover");
-                String name_bg = curBook.getString("name_bg");
-
-
-                Book r = new Book(id, (short) rating, cover, name_bg);
-                result.add(r);
+                result.add(getBookBasicInfo(books.getJSONObject(i)));
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
         }
         return result;
     }
-    private Book getBookFromJSONObject(JSONObject curBook)
+    private Book getBookFromJSONObject(JSONObject curBook) //Ready
     {
+        /**
+         *@param: JSONObject curBook - constains 7 JSONArray's:
+         *  book
+         *  authors
+         *  tags
+         *  series
+         *  translation
+         *  language
+         *  country
+         * We split them into different JSONObjects or JSONArray, and get the relevant info from them
+         */
+        JSONObject book, series, traslation, language, country;
+        JSONArray authors, tags;
         Book r;
+
         try {
-            int id = curBook.getInt("id");
-            int chapters = curBook.getInt("chapters");
-            int series_id = curBook.getInt("series_id");
-            int publish_year = curBook.getInt("publish_year");
-            int language_id = curBook.getInt("language_id");
-            int country_id = curBook.getInt("country_id");
-            int rating = curBook.getInt("rating");
-            int rating_count = curBook.getInt("rating_count");
-            int finished_count  = curBook.getInt("finished_count");
-            int reading_count = curBook.getInt("reading_count");
-            int wishlist_count = curBook.getInt("wishlist_count");
-            int dropped_count = curBook.getInt("dropped_count");
-            int onhold_count = curBook.getInt("onhold_count");
-            int review_count = curBook.getInt("review_count");
-            String cover = curBook.getString("cover");
-            String name_original = curBook.getString("name_original");
-            String name_bg = curBook.getString("name_bg");
-            String name_en = curBook.getString("name_en");
-            int author_count = curBook.getInt("author_count");
+            book = curBook.getJSONObject("book");
+            authors = curBook.getJSONArray("authors");
+            tags = curBook.getJSONArray("tags");
+            series = curBook.getJSONObject("series");
+            traslation = curBook.getJSONObject("translation");
+            language = curBook.getJSONObject("language");
+            country = curBook.getJSONObject("country");
 
-            short userRating = (short)curBook.getInt("rating");
-            short userRereadValue = (short)curBook.getInt("reread_value");
-            short userRereadCount = (short)curBook.getInt("reread_count");
+            int id = book.getInt("id");
+            int chapters = book.getInt("chapters");
+            int series_id = book.getInt("series_id");
+            int publish_year = book.getInt("publish_year");
+            int language_id = book.getInt("language_id");
+            int country_id = book.getInt("country_id");
+            int rating = book.getInt("rating");
+            int rating_count = book.getInt("rating_count");
+            int finished_count  = book.getInt("finished_count");
+            int reading_count = book.getInt("reading_count");
+            int wishlist_count = book.getInt("wishlist_count");
+            int dropped_count = book.getInt("dropped_count");
+            int onhold_count = book.getInt("onhold_count");
+            int review_count = book.getInt("review_count");
 
+            String cover = book.getString("cover");
+            String name_original = traslation.getString("special");
+            String name_bg = traslation.getString("bg");
+            String name_en = traslation.getString("en");
+
+            int author_count = authors.length();
+
+            //@TODO - WIP
+            short userRating = 1;
+            short userRereadValue = 1;
+            short userRereadCount = 1;
             Book.BookStatus userStatus = Book.BookStatus.Reading;
-            userStatus = Book.BookStatus.values()[curBook.getInt("status_id")];
+            //userStatus = Book.BookStatus.values()[curBook.getInt("status_id")];
 
-            String language = "";
-            String country = "", series = "", summary = "";
-            String userNote = curBook.getString("note");
+            String languageS = language.getString("bg");
 
-            ArrayList<String> authors = new ArrayList<>(), genres = new ArrayList<>(), types = new ArrayList<>();
+            String countryS = country.getString("special"),
+                    seriesS = series.getString("bg"),
+                    summary = ""; //@TODO - WIP
+            String userNote = ""; //@TODO - WIP
+            String genres = tags.getJSONObject(0).getString("bg");
+
+            ArrayList<Author> authorsS = new ArrayList<>();
+            ArrayList<String>  types = new ArrayList<>();
             ArrayList<Review> reviews = new ArrayList<>();
 
-            //TODO - Get the language, county_id, series_id, summary from the DB - They will be done after the API is done
-            //TODO - authors, genres, types, reviews - same
+
+            int s = tags.length();
+            for(int i = 1; i < s; i++)
+            {
+                types.add(tags.getJSONObject(i).getString("bg"));
+            }
+
+            if(authors.isNull(1))
+            {
+                s = 1;
+            }
+            else
+            {
+                s = authors.length();
+            }
+
+            for(int i = 0; i < s; i++)
+            {
+                Author temp = getAuthor(authors.getJSONObject(i));
+                authorsS.add(temp);
+                //arrayListAlgorithms.authorInsertById(authorsS, temp);
+            }
+            //TODO - Get the summary from the DB - They will be done after the API is done
+            //TODO - authors, reviews - same
 
             r = new Book(id,series_id, finished_count, reading_count,wishlist_count, dropped_count,
                     onhold_count, review_count, (short)chapters,(short)publish_year, (short)rating, userRating,
                     userRereadValue,userRereadCount, name_original,
-                    name_bg, language, country, series, cover, summary,userNote,authors, genres, types, reviews, userStatus);
+                    name_bg, languageS, countryS, seriesS, cover, summary,userNote,authorsS, genres, types, reviews, userStatus);
 
             return r;
 
@@ -162,35 +248,74 @@ public class JSONHandler {
         return r;
 
     }
+    private Author getAuthor(JSONObject obj)
+    {
+        int id = 0; //The id of the author
+        short bornYear = 0; //The year the author is born
+        short diedYear = 0; //The year the author has died (if not, its 0)
+        short bookCount = 0; //The amount of books the author has written
+        short seriesCount = 0; //The amount of series the author has written
+        short userRating = 0; //The user rating of the author
 
-    ArrayList<Book> getFavoriteBooks(String json)
-    {
-        return fillArrayListBooksBasicInfo(json);
+        String name = ""; //The name of the author in the current language
+        String name_original = ""; //The name of the author in his native language
+        String country = ""; //The country of origin of the author
+        String penName = ""; //The pen name of the author
+        String pictureLink = ""; //The link to the author's picture
+
+        ArrayList<String> genres; //The genres that author writes
+        ArrayList<String> types; //The type of books that the author writes
+
+        try {
+            id = obj.getJSONObject("author").getInt("id");
+            bornYear = (short)obj.getJSONObject("author").getInt("born_year");
+            diedYear = (short)obj.getJSONObject("author").getInt("died_year");
+
+            name = obj.getJSONObject("translation").getJSONObject("name").getString("bg");
+            name_original = obj.getJSONObject("translation").getJSONObject("name").getString("special");
+
+            country = obj.getJSONObject("country").getString("bg");
+            penName = obj.getJSONObject("translation").getJSONObject("pen_name").getString("bg");
+
+            pictureLink = obj.getJSONObject("author").getString("picture");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Author temp = new Author(id, bornYear, diedYear, bookCount, seriesCount, userRating, name, name_original, country, penName, pictureLink);
+
+        return temp;
     }
-    ArrayList<Book> getReadingBooks(String json)
+    /**
+     * Custom methods
+     */
+    ArrayList<Book> getFavoriteBooks()
     {
-        return fillArrayListBooksBasicInfo(json);
+        return fillArrayListBooksBasicInfo();
     }
-    ArrayList<Book> getWishlishBooks(String json)
+    ArrayList<Book> getReadingBooks()
     {
-        return fillArrayListBooksBasicInfo(json);
+        return fillArrayListBooksBasicInfo();
     }
-    ArrayList<Book> getDroppedBooks(String json)
+    ArrayList<Book> getWishlishBooks()
     {
-        return fillArrayListBooksBasicInfo(json);
+        return fillArrayListBooksBasicInfo();
     }
-    ArrayList<Book> getOnHoldBooks(String json)
+    ArrayList<Book> getDroppedBooks()
     {
-        return fillArrayListBooksBasicInfo(json);
+        return fillArrayListBooksBasicInfo();
     }
-    ArrayList<Book> getFinishedBooks(String json)
+    ArrayList<Book> getOnHoldBooks()
     {
-        return fillArrayListBooksBasicInfo(json);
+        return fillArrayListBooksBasicInfo();
+    }
+    ArrayList<Book> getFinishedBooks()
+    {
+        return fillArrayListBooksBasicInfo();
     }
 
-    ArrayList<Book> getAllBooks(String json)
+    ArrayList<Book> getAllBooks()
     {
-        getBooks(json);
         ArrayList<Book> result = new ArrayList<>();
         int s = books.length();
 
@@ -223,7 +348,10 @@ public class JSONHandler {
         }
         return result;
     }
-
+    Book getSingleBook()
+    {
+        return getBookFromJSONObject(singleBook);
+    }
 
     void getUserProfile(String json) // Gets all user's profile info
     {
@@ -308,6 +436,8 @@ public class JSONHandler {
             e.printStackTrace();
         }
     }
+
+
 
     //TODO - Friends will be done later
     //TODO - Achievements will be done later

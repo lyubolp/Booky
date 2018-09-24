@@ -65,7 +65,22 @@ public class JSONLoader extends AsyncTask<Void, Void, Void> {
         super.onPostExecute(result);
 
     }
+  /*  public String loadJSONFromAsset() {
+        String json = null;
+        try {
 
+            InputStream is = getResources().openRawResource(R.raw.getBookByID);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }*/
 
 
 }

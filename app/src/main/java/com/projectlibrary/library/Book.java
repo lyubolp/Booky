@@ -27,6 +27,7 @@ public class Book {
     private short chapters; //The amount of chapters
     private short publishYear; //The year that book was published
     private short rating; //The rating of the book
+
     private short userRating; //The rating of the book from the current user
     private short userRereadValue; //Rating the rereading value of a book
     private short userRereadCount; //Amount of times the user has reread the book
@@ -41,8 +42,8 @@ public class Book {
     private String userNote; //A note that the user gave the book
 
 
-    private ArrayList<String> authors; //The authors of the book
-    private ArrayList<String> genres; //The genres of the book
+    private ArrayList<Author> authors; //The authors of the book
+    private String genres; //The genres of the book
     private ArrayList<String> types; //The book types
     private ArrayList<Review> reviews; //The book reviews
 
@@ -64,7 +65,7 @@ public class Book {
         coverLink = Cover;
         name = Name;
     }
-    Book(int id, int seriesID, int finished, int reading, int wishlish, int dropped, int onhold, int reviewsCount, short chapters, short publishYear, short rating, short userRating, short userRereadValue, short userRereadCount, String nameOriginal, String name, String language, String country, String series, String coverLink, String summary, String userNote, ArrayList<String> authors, ArrayList<String> genres, ArrayList<String> types, ArrayList<Review> reviews, BookStatus userStatus) //Gets the book based on its id
+    Book(int id, int seriesID, int finished, int reading, int wishlish, int dropped, int onhold, int reviewsCount, short chapters, short publishYear, short rating, short userRating, short userRereadValue, short userRereadCount, String nameOriginal, String name, String language, String country, String series, String coverLink, String summary, String userNote, ArrayList<Author> authors, String genres, ArrayList<String> types, ArrayList<Review> reviews, BookStatus userStatus) //Gets the book based on its id
     {
         ID = id;
         this.seriesID = seriesID;
@@ -183,11 +184,11 @@ public class Book {
         return userNote;
     }
 
-    public ArrayList<String> getAuthors() {
+    public ArrayList<Author> getAuthors() {
         return authors;
     }
 
-    public ArrayList<String> getGenres() {
+    public String getGenres() {
         return genres;
     }
 
