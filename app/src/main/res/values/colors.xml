@@ -8,4 +8,5 @@
     <color name="bookStateReading">#FFCC00</color>
     <color name="bookStateWishlist">#33CCCC</color>
     <color name="bookStateDroped">#CC0000</color>
+    <color name="foreground_material_light">#000000</color>
 </resources>

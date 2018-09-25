@@ -57,63 +57,63 @@ public class LibraryActivity extends AppCompatActivity {
         //Temporary code
 
         //Every event sends the id of the book object
-        img1 = findViewById(R.id.book1); //Binding the objects to the views
+        img1 = (ImageView)findViewById(R.id.book1); //Binding the objects to the views
         img1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View w) {
                 clickEvent(w.getResources().getResourceName(w.getId()));
             }
         });
 
-        img2 = findViewById(R.id.book2); //Binding the objects to the views
+        img2 = (ImageView)findViewById(R.id.book2); //Binding the objects to the views
         img2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View w) {
                 clickEvent(w.getResources().getResourceName(w.getId()));
             }
         });
 
-        img3 = findViewById(R.id.book3); //Binding the objects to the views
+        img3 = (ImageView)findViewById(R.id.book3); //Binding the objects to the views
         img3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View w) {
                 clickEvent(w.getResources().getResourceName(w.getId()));
             }
         });
 
-        img4 = findViewById(R.id.book4); //Binding the objects to the views
+        img4 = (ImageView)findViewById(R.id.book4); //Binding the objects to the views
         img4.setOnClickListener(new View.OnClickListener(){
             public void onClick(View w) {
                 clickEvent(w.getResources().getResourceName(w.getId()));
             }
         });
 
-        img5 = findViewById(R.id.book5); //Binding the objects to the views
+        img5 = (ImageView)findViewById(R.id.book5); //Binding the objects to the views
         img5.setOnClickListener(new View.OnClickListener(){
             public void onClick(View w) {
                 clickEvent(w.getResources().getResourceName(w.getId()));
             }
         });
 
-        img6 = findViewById(R.id.book6); //Binding the objects to the views
+        img6 = (ImageView)findViewById(R.id.book6); //Binding the objects to the views
         img6.setOnClickListener(new View.OnClickListener(){
             public void onClick(View w) {
                 clickEvent(w.getResources().getResourceName(w.getId()));
             }
         });
 
-        img7 = findViewById(R.id.book7); //Binding the objects to the views
+        img7 = (ImageView)findViewById(R.id.book7); //Binding the objects to the views
         img7.setOnClickListener(new View.OnClickListener(){
             public void onClick(View w) {
                 clickEvent(w.getResources().getResourceName(w.getId()));
             }
         });
 
-        img8 = findViewById(R.id.book8); //Binding the objects to the views
+        img8 = (ImageView)findViewById(R.id.book8); //Binding the objects to the views
         img8.setOnClickListener(new View.OnClickListener(){
             public void onClick(View w) {
                 clickEvent(w.getResources().getResourceName(w.getId()));
             }
         });
 
-        img9 = findViewById(R.id.book9); //Binding the objects to the views
+        img9 = (ImageView)findViewById(R.id.book9); //Binding the objects to the views
         img9.setOnClickListener(new View.OnClickListener(){
             public void onClick(View w) {
                 clickEvent(w.getResources().getResourceName(w.getId()));

@@ -34,10 +34,10 @@ public class bookActivity extends AppCompatActivity {
        TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
         tv.setText(book.getName() + " - " + book.getAuthors().get(0).getName());
 
-       TextView tv2 = findViewById(R.id.bookYearPublished);
+       TextView tv2 = (TextView)findViewById(R.id.bookYearPublished);
         tv2.setText("Година на издаване - " + Integer.toString(book.getPublishYear()) + "г.");
 
-       TextView tv3 = findViewById(R.id.bookGenre);
+       TextView tv3 = (TextView)findViewById(R.id.bookGenre);
         tv3.setText("Жанр - " + book.getGenres());
 
     }
