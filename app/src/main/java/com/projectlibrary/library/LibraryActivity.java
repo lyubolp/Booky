@@ -6,18 +6,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+
+import static com.projectlibrary.library.User.Instance;
 
 public class LibraryActivity extends AppCompatActivity {
 
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
-    int[] currentBooksIds = {1,2,3,4,5,6,7,8,9}; //The id's of the 9 books currently displayed to the user
-
+    private TextView pagesText;
+    private Button btnPrev, btnNext;
+    public static ArrayList<Book> books;
+    int page = 1, maxPage = 1;
 
     //Events for images clicked
 
@@ -33,29 +40,39 @@ public class LibraryActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        JSONHandler jsonHandler = new JSONHandler(loadJSONFromAsset(), QueryType.BookNine);
+        loadBooks();
+         maxPage = (Instance.getReading().size() / 9) + 1;
+        pagesText = (TextView)findViewById(R.id.pagesNumber);
+        pagesText.setText(page + "/" + maxPage);
 
-        ArrayList<Book> books = jsonHandler.getReadingBooks();
-
-
-        User.Instance.setReadingBooks(books);
-
-        Log.d("test", books.get(0).getName());
-        for(int i = 0; i < 9; i++)
-        {
-            currentBooksIds[i] = books.get(i).getID();
-            Log.d("BookId", "BookId" + i + " " + Integer.toString(books.get(i).getID()));
-        }
-        //Temporary code
-
+        btnPrev = (Button)findViewById(R.id.buttonPrev);
+        btnPrev.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View w) {
+                if(page >= 2)
+                {
+                    page--;
+                    pagesText.setText(page + "/" + maxPage);
+                    loadBooks();
+                }
+            }
+        });
+        btnNext = (Button)findViewById(R.id.buttonNext);
+        btnNext.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View w) {
+                if(page < maxPage)
+                {
+                    page++;
+                    pagesText.setText(page + "/" + maxPage);
+                    loadBooks();
+                }
+            }
+        });
         //Every event sends the id of the book object
         img1 = (ImageView)findViewById(R.id.book1); //Binding the objects to the views
         img1.setOnClickListener(new View.OnClickListener(){
@@ -119,6 +136,9 @@ public class LibraryActivity extends AppCompatActivity {
                 clickEvent(w.getResources().getResourceName(w.getId()));
             }
         });
+
+
+
     }
 
     public void clickEvent(String a) {
@@ -129,66 +149,77 @@ public class LibraryActivity extends AppCompatActivity {
             case "com.projectlibrary.library:id/book1":
 
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(currentBooksIds[0]));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(0).getID()));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book2":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(currentBooksIds[1]));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(1).getID()));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book3":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(currentBooksIds[2]));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(2).getID()));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book4":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(currentBooksIds[3]));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(3).getID()));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book5":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(currentBooksIds[4]));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(4).getID()));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book6":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(currentBooksIds[5]));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(5).getID()));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book7":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(currentBooksIds[6]));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(6).getID()));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book8":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(currentBooksIds[7]));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(7).getID()));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book9":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(currentBooksIds[8]));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(8).getID()));
                 startActivity(intent);
                 break;
         }
     }
-    //@TODO - This is a temp function
-    public String loadJSONFromAsset() {
-        String json = null;
+    void loadBooks()
+    {
         try {
+            String params[] = {"3", "0", "0", "0", "0", "0", "0", "0", "0", "0"}; //We must send an array to the Loader, with the 1st parameter being the QueryType
 
-            InputStream is = getResources().openRawResource(R.raw.get_multiple_books_by_id);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
+            if(page == maxPage)
+            {
+                int s = User.Instance.getReading().size() % 9;
+                for(int i = 1; i < s; i++)
+                {
+                    params[i] = Integer.toString(User.Instance.getReading().get((i-1) + (page - 1)*9));
+                }
+            }
+            else
+            {
+                for(int i = 1; i < 10; i++)
+                {
+                    params[i] = Integer.toString(Instance.getReading().get((i-1) + (page - 1)*9));
+                }
+            }
+
+            String res = new JSONLoader().execute(params).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
-        return json;
     }
 }

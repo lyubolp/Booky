@@ -28,20 +28,20 @@ public class User {
     private String city; //City of the user
     private String avatarLink; //Link to the avatar
 
-    private ArrayList<Achievement> achievements; //The achievements of the user
+    private ArrayList<Integer> achievements; //The achievements of the user
 
-    private ArrayList<Author> favoriteAuthors; //The favourite authors of the user
+    private ArrayList<Integer> favoriteAuthors; //The favourite authors of the user
 
-    private ArrayList<Book> finished; //Books that have been read
-    private ArrayList<Book> reading; //Books that are currently being read
-    private ArrayList<Book> wishlist; //Books that are in the users wishlist
-    private ArrayList<Book> dropped; //Books that have been dropped
-    private ArrayList<Book> onhold; //Books that have been put onhold
-    private ArrayList<Book> favoriteBooks; //The favourite books of the user
+    private ArrayList<Integer> finished; //Books that have been read
+    private ArrayList<Integer> reading; //Books that are currently being read
+    private ArrayList<Integer> wishlist; //Books that are in the users wishlist
+    private ArrayList<Integer> dropped; //Books that have been dropped
+    private ArrayList<Integer> onhold; //Books that have been put onhold
+    private ArrayList<Integer> favoriteBooks; //The favourite books of the user
 
-    private ArrayList<Friend> friends; //Friends list
+    private ArrayList<Integer> friends; //Friends list
 
-    private ArrayList<Review> reviews;
+    private ArrayList<Integer> reviews;
 
     private ArrayList<String> favoriteGenres; //The favorite genres of the user
     private ArrayList<String> favoriteTypes; //The favorite books types of the users
@@ -55,7 +55,7 @@ public class User {
     {
 
     }
-    public User(int id, int level, short birthYear, short birthMonth, short birthDay, String email, String nickname, String city, String avatarLink, ArrayList<Achievement> achievements, ArrayList<Author> favoriteAuthors, ArrayList<Book> finished, ArrayList<Book> reading, ArrayList<Book> wishlist, ArrayList<Book> dropped, ArrayList<Book> onhold, ArrayList<Book> favoriteBooks, ArrayList<Friend> friends, ArrayList<Review> reviews, ArrayList<String> favoriteGenres, ArrayList<String> favoriteTypes, Rank rank)
+    public User(int id, int level, short birthYear, short birthMonth, short birthDay, String email, String nickname, String city, String avatarLink, ArrayList<Integer> achievements, ArrayList<Integer> favoriteAuthors, ArrayList<Integer> finished, ArrayList<Integer> reading, ArrayList<Integer> wishlist, ArrayList<Integer> dropped, ArrayList<Integer> onhold, ArrayList<Integer> favoriteBooks, ArrayList<Integer> friends, ArrayList<Integer> reviews, ArrayList<String> favoriteGenres, ArrayList<String> favoriteTypes, Rank rank)
     {
         ID = id;
         this.level = level;
@@ -134,43 +134,43 @@ public class User {
         return avatarLink;
     }
 
-    public ArrayList<Achievement> getAchievements() {
+    public ArrayList<Integer> getAchievements() {
         return achievements;
     }
 
-    public ArrayList<Author> getFavoriteAuthors() {
+    public ArrayList<Integer> getFavoriteAuthors() {
         return favoriteAuthors;
     }
 
-    public ArrayList<Book> getFinished() {
+    public ArrayList<Integer> getFinished() {
         return finished;
     }
 
-    public ArrayList<Book> getReading() {
+    public ArrayList<Integer> getReading() {
         return reading;
     }
 
-    public ArrayList<Book> getWishlist() {
+    public ArrayList<Integer> getWishlist() {
         return wishlist;
     }
 
-    public ArrayList<Book> getDropped() {
+    public ArrayList<Integer> getDropped() {
         return dropped;
     }
 
-    public ArrayList<Book> getOnhold() {
+    public ArrayList<Integer> getOnhold() {
         return onhold;
     }
 
-    public ArrayList<Book> getFavoriteBooks() {
+    public ArrayList<Integer> getFavoriteBooks() {
         return favoriteBooks;
     }
 
-    public ArrayList<Friend> getFriends() {
+    public ArrayList<Integer> getFriends() {
         return friends;
     }
 
-    public ArrayList<Review> getReviews() {
+    public ArrayList<Integer> getReviews() {
         return reviews;
     }
 
@@ -199,7 +199,7 @@ public class User {
         birthDay = d;
     }
 
-    public void setReadingBooks(ArrayList<Book> books)
+    public void setReadingBooks(ArrayList<Integer> books)
     {
         reading = books;
     }
@@ -215,88 +215,81 @@ public class User {
     }
     public void addFinishedBook(int id)
     {
-        Book temp = new Book(id);
-        sorter.bookInsertById(finished, temp); //Inserting the book to be added, so that the list remains sorted
+        finished.add(id); //Inserting the book to be added, so that the list remains sorted
     }
     public void removeFinishedBook(int id)
     {
-        sorter.bookRemoveById(finished, id);
+        finished.remove(id);
     }
 
     public void addReadingBook(int id)
     {
-        Book temp = new Book(id);
-        sorter.bookInsertById(reading, temp); //Inserting the book to be added, so that the list remains sorted
+        reading.add(id); //Inserting the book to be added, so that the list remains sorted
     }
     public void removeReadingBook(int id)
     {
-        sorter.bookRemoveById(reading, id);
+        reading.add(id);
     }
 
     public void addWishlistBook(int id)
     {
-        Book temp = new Book(id);
-        sorter.bookInsertById(wishlist, temp); //Inserting the book to be added, so that the list remains sorted
+        wishlist.add(id); //Inserting the book to be added, so that the list remains sorted
     }
 
     public void removeWishlistBook(int id)
     {
-        sorter.bookRemoveById(wishlist, id);
+        wishlist.remove(id);
     }
 
     public void addDroppedBook(int id)
     {
-        Book temp = new Book(id);
-        sorter.bookInsertById(dropped, temp); //Inserting the book to be added, so that the list remains sorted
+        dropped.add(id); //Inserting the book to be added, so that the list remains sorted
     }
 
     public void removeDroppedBook(int id)
     {
-        sorter.bookRemoveById(dropped, id);
+        dropped.remove(id);
     }
 
     public void addOnholdBook(int id)
     {
-        Book temp = new Book(id);
-        sorter.bookInsertById(onhold, temp); //Inserting the book to be added, so that the list remains sorted
+        onhold.add(id); //Inserting the book to be added, so that the list remains sorted
     }
 
     public void removeOnholdBook(int id)
     {
-        sorter.bookRemoveById(onhold, id);
+        onhold.remove(id);
     }
 
     public void addFriend(int id)
     {
-        //Friend temp = new Friend(id);
-        //friends.add(temp);
+        friends.add(id);
     }
 
     public void removeFriend(int id)
     {
-
+        friends.remove(id);
     }
 
     public void addFavoriteAuthor(int id)
     {
-
+        favoriteAuthors.add(id);
     }
 
     public void removeFavoriteAuthor(int id)
     {
-
+        favoriteAuthors.remove(id);
     }
 
     public void addFavoriteBook(int id)
     {
-        Book temp = new Book(id);
-        sorter.bookInsertById(favoriteBooks, temp); //Inserting the book to be added, so that the list remains sorted
+        favoriteBooks.add(id); //Inserting the book to be added, so that the list remains sorted
 
     }
 
     public void removeFavoriteBook(int id)
     {
-        sorter.bookRemoveById(favoriteBooks, id);
+        favoriteBooks.remove(id);
     }
 
     public void addFavoriteGenre(int id)

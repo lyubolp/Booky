@@ -23,6 +23,9 @@
             android:id="@+id/nav_settings"
             android:title="@string/settings" />
         <item
+            android:id="@+id/nav_debug"
+            android:title="@string/debug" />
+        <item
             android:id="@+id/nav_exit"
             android:title="@string/exit" />
     </group>

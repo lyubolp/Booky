@@ -9,24 +9,19 @@
     <string name="social">Площад</string>
     <string name="settings">Настройки</string>
     <string name="exit">Изход</string>
+    <string name="debug">Debug</string>
     <string name="book">Книга</string>
     <string name="bookPlaceholderName">Произведение - Автор</string>
     <string name="bookPlaceholderGenre">Жанр - Жанр</string>
     <string name="bookPlaceholderYearPublished">Година на издаване - 2018г.</string>
 
     <string-array name="bookState">
-        <!--
-        Reading,
-        Finished,
-        Wishlist,
-        Dropped,
-        Onhold
-        -->
         <item>В момента чете</item>
         <item>Прочетена</item>
         <item>В списък с желания</item>
         <item>Непрочетена</item>
         <item>Оставена</item>
     </string-array>
+    <string name="title_activity_developer_panel">Debug</string>
 
 </resources>

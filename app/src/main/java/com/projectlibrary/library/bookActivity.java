@@ -7,10 +7,11 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
 
 public class bookActivity extends AppCompatActivity {
+    public static Book book;
 
-    Book book;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,20 +19,19 @@ public class bookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_book);
 
         String bookId= getIntent().getStringExtra("OPENED_BOOK");
-        ArrayListAlgorithms arrayListAlgorithms = new ArrayListAlgorithms();
-        int bookIdInt = Integer.parseInt(bookId);
 
-        Log.d("Test", bookId);
+        Log.d("TestCon", "Book id " + bookId);
+        try {
+            String res = new JSONLoader().execute("4", bookId).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        Log.d("TestCon", "Code after Async task");
 
-        JSONHandler js = new JSONHandler(loadJSONFromAsset(), QueryType.BookSingle);
-        Log.d("JSON", loadJSONFromAsset());
 
-        //@TODO This is temp code, when the API is finished, we will request full book info
-        book = js.getSingleBook();
-
-
-
-       TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
+        TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
         tv.setText(book.getName() + " - " + book.getAuthors().get(0).getName());
 
        TextView tv2 = (TextView)findViewById(R.id.bookYearPublished);
@@ -40,22 +40,5 @@ public class bookActivity extends AppCompatActivity {
        TextView tv3 = (TextView)findViewById(R.id.bookGenre);
         tv3.setText("Жанр - " + book.getGenres());
 
-    }
-    //@TODO - This is a temp function
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-
-            InputStream is = getResources().openRawResource(R.raw.get_book_by_id);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
     }
 }

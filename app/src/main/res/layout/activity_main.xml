@@ -29,9 +29,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
-
-
-
         </FrameLayout>
 
         <!-- Container for contents of drawer - use NavigationView to make configuration easier -->

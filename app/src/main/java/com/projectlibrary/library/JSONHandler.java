@@ -159,63 +159,48 @@ public class JSONHandler {
         JSONArray authors, tags;
         Book r;
 
+        int id = 0, chapters = 0, series_id = 0, publish_year = 0, language_id = 0, country_id = 0, rating = 0, rating_count = 0, finished_count = 0,
+                reading_count = 0, wishlist_count = 0, dropped_count = 0, onhold_count = 0, review_count = 0, s = 0;
+
+        short userRating = 1;
+        short userRereadValue = 1;
+        short userRereadCount = 1;
+        String cover = "", name_original = "", name_bg = "", name_en = "", languageS = "", countryS = "",
+                seriesS = "", summary = "", genres = "", userNote = "";
+
+
+        ArrayList<Author> authorsS = new ArrayList<>();
+        ArrayList<String>  types = new ArrayList<>();
+        ArrayList<Review> reviews = new ArrayList<>();
+
+        Book.BookStatus userStatus = Book.BookStatus.Reading;
+
         try {
             book = curBook.getJSONObject("book");
+            id = book.getInt("id");
+            chapters = book.getInt("chapters");
+            series_id = book.getInt("series_id");
+            publish_year = book.getInt("publish_year");
+            language_id = book.getInt("language_id");
+            country_id = book.getInt("country_id");
+            rating = book.getInt("rating");
+            rating_count = book.getInt("rating_count");
+            finished_count  = book.getInt("finished_count");
+            reading_count = book.getInt("reading_count");
+            wishlist_count = book.getInt("wishlist_count");
+            dropped_count = book.getInt("dropped_count");
+            onhold_count = book.getInt("onhold_count");
+            review_count = book.getInt("review_count");
+
+            cover = book.getString("cover");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        try{
             authors = curBook.getJSONArray("authors");
-            tags = curBook.getJSONArray("tags");
-            series = curBook.getJSONObject("series");
-            traslation = curBook.getJSONObject("translation");
-            language = curBook.getJSONObject("language");
-            country = curBook.getJSONObject("country");
-
-            int id = book.getInt("id");
-            int chapters = book.getInt("chapters");
-            int series_id = book.getInt("series_id");
-            int publish_year = book.getInt("publish_year");
-            int language_id = book.getInt("language_id");
-            int country_id = book.getInt("country_id");
-            int rating = book.getInt("rating");
-            int rating_count = book.getInt("rating_count");
-            int finished_count  = book.getInt("finished_count");
-            int reading_count = book.getInt("reading_count");
-            int wishlist_count = book.getInt("wishlist_count");
-            int dropped_count = book.getInt("dropped_count");
-            int onhold_count = book.getInt("onhold_count");
-            int review_count = book.getInt("review_count");
-
-            String cover = book.getString("cover");
-            String name_original = traslation.getString("special");
-            String name_bg = traslation.getString("bg");
-            String name_en = traslation.getString("en");
-
-            int author_count = authors.length();
-
-            //@TODO - WIP
-            short userRating = 1;
-            short userRereadValue = 1;
-            short userRereadCount = 1;
-            Book.BookStatus userStatus = Book.BookStatus.Reading;
-            //userStatus = Book.BookStatus.values()[curBook.getInt("status_id")];
-
-            String languageS = language.getString("bg");
-
-            String countryS = country.getString("special"),
-                    seriesS = series.getString("bg"),
-                    summary = ""; //@TODO - WIP
-            String userNote = ""; //@TODO - WIP
-            String genres = tags.getJSONObject(0).getString("bg");
-
-            ArrayList<Author> authorsS = new ArrayList<>();
-            ArrayList<String>  types = new ArrayList<>();
-            ArrayList<Review> reviews = new ArrayList<>();
-
-
-            int s = tags.length();
-            for(int i = 1; i < s; i++)
-            {
-                types.add(tags.getJSONObject(i).getString("bg"));
-            }
-
+            int author_count = authors.length(); //Legacy code
             if(authors.isNull(1))
             {
                 s = 1;
@@ -231,22 +216,61 @@ public class JSONHandler {
                 authorsS.add(temp);
                 //arrayListAlgorithms.authorInsertById(authorsS, temp);
             }
-            //TODO - Get the summary from the DB - They will be done after the API is done
-            //TODO - authors, reviews - same
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-            r = new Book(id,series_id, finished_count, reading_count,wishlist_count, dropped_count,
+
+        try {
+            tags = curBook.getJSONArray("tags");
+            genres = tags.getJSONObject(0).getString("bg");
+            s = tags.length();
+            for(int i = 1; i < s; i++)
+            {
+                types.add(tags.getJSONObject(i).getString("bg"));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            series = curBook.getJSONObject("series");
+            seriesS = series.getString("bg");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            traslation = curBook.getJSONObject("translation");
+
+            name_original = traslation.getString("special");
+            name_bg = traslation.getString("bg");
+            name_en = traslation.getString("en");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            language = curBook.getJSONObject("language");
+            languageS = language.getString("bg");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            country = curBook.getJSONObject("country");
+            countryS = country.getString("special");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        //TODO - Get the summary from the DB - They will be done after the API is done
+        //TODO - authors, reviews - same
+
+        r = new Book(id,series_id, finished_count, reading_count,wishlist_count, dropped_count,
                     onhold_count, review_count, (short)chapters,(short)publish_year, (short)rating, userRating,
                     userRereadValue,userRereadCount, name_original,
                     name_bg, languageS, countryS, seriesS, cover, summary,userNote,authorsS, genres, types, reviews, userStatus);
 
-            return r;
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        r =  new Book();
         return r;
-
     }
     private Author getAuthor(JSONObject obj)
     {

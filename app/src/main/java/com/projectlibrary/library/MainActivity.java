@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
 
-        playGround();
+        playGround(); //Test code is executed here
 
 
         NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
@@ -60,22 +60,16 @@ public class MainActivity extends AppCompatActivity {
                         switch (menuItem.toString())
                         {
                             case "Библиотека":
-                                /*new View.OnClickListener() {
-                                    public void onClick(View v) {
-                                        Log.d("TEST", "1");
-
-                                    }
-                                };*/
                                 //startActivity(new Intent(MainActivity.this, library.class));
                                 Intent intent = new Intent(MainActivity.this, LibraryActivity.class);
-
                                 startActivity(intent);
-
                                 //case R.string.library; //TODO - When I try to access the string in values/string.xml, it shows them as integer... so yeah...
                                 break;
+                            case "Debug":
+                                Intent intentDebug = new Intent(MainActivity.this, DeveloperPanel.class);
+                                startActivity(intentDebug);
+                                break;
                         }
-                        Log.d("TEST",menuItem.toString());
-
                         // Add code here to update the UI based on the item selected
                         // For example, swap UI fragments here
 
@@ -135,37 +129,27 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * THIS IS TESTING CODE, WILL BE CLEANED UP
+     */
     public void playGround() //Testing some stuff
     {
-        ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Integer> ids = new ArrayList<>();
 
-        Book b1 = new Book(1);
-        Book b2 = new Book(7);
-        Book b3 = new Book(5);
-        Book b4 = new Book(2);
-        Book b5 = new Book(9);
-        Book b6 = new Book(12);
-        Book b7 = new Book(6);
+        for(int i = 1; i < 23; i++)
+        {
+            ids.add(i);
+        }
+        User.Instance.setReadingBooks(ids);
 
-        books.add(b1);
-        books.add(b2);
-        books.add(b3);
-        books.add(b4);
-        books.add(b5);
-        books.add(b6);
-
-
-
-
-        ArrayListAlgorithms ae = new ArrayListAlgorithms();
-
-        ae.bookSortById(books);
-
-        ae.bookInsertById(books, b7);
-
-        String t2 = Integer.toString(ae.bookFind(books, b7));
-        Log.d("Test", t2);
 
 
     }
+    /*public static void fillUserWithBooks(String json)
+    {
+        JSONHandler jsonHandler = new JSONHandler(json, QueryType.BookNine);
+        ArrayList<Book> books = jsonHandler.getReadingBooks();
+        User.Instance.setReadingBooks(books);
+    }*/
 }

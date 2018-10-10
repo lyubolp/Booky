@@ -2,85 +2,204 @@ package com.projectlibrary.library;
 
 
 import android.os.AsyncTask;
-import android.util.JsonReader;
 import android.util.Log;
-import android.widget.Toast;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.*;
 
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class JSONLoader extends AsyncTask<Void, Void, Void> {
+public class JSONLoader extends AsyncTask<String, String, String> {
+
+    public QueryType queryType;
+    public JSONLoader(){
+        //set context variables if required
+    }
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+    }
+
+    /**
+
+     How does this class work?
+     We call it by using: new JSONLoader().execute(params);
+        where params are:
+        params[0] - the query type in number type (check JSONHanlder -> QueryType)
+        params[1] - additional info to the query (ex. ids)
+     **/
+    @Override
+    protected String doInBackground(String... params) {
+        try {
+            return makeServiceCall(params);
+        } catch (Exception e) {
+            Log.d("TestCon", "Error" + e.getMessage());
+        }
+        return "Failed";
+    }
+    protected void onPostExecute(String result) {
+        /*Log.d("TestCon", "Query type on post execute" + queryType.toString());
+        if(queryType == QueryType.BookSmall || queryType == QueryType.BookFull || queryType == QueryType.BookSingle)
+        {
+            JSONHandler js = new JSONHandler(result, QueryType.BookSingle);
+            bookActivity.book = js.getSingleBook();
+        }
+        else if(queryType == QueryType.BookNine)
+        {
+            MainActivity.fillUserWithBooks(result);
+        }*/
 
     }
 
-    @Override
-    protected Void doInBackground(Void... arg0) {
-        Log.d("JSON","Started");
-        HttpHandler sh = new HttpHandler();
-        // Making a request to url and getting response
-        String url = "http://booky.lkarev.com/test.json";
-        String jsonStr = sh.makeServiceCall(url);
-        //String jsonStr = "http://booky.lkarev.com/test.json";
-        Log.e("JSON", "Response from url: " + jsonStr);
-        if (jsonStr != null) {
 
-            JSONObject reader;
-            try
-            {
-                reader = new JSONObject(jsonStr);
+    public String makeServiceCall(String... paramsM) {
+        String reqUrl = "http://booky.lkarev.com/api/"; // URL to call
+        String response = null, data = null;
+        OutputStream out = null;
+        JSONObject json = new JSONObject();
 
-                JSONObject sys  = reader.getJSONObject("address");
-                String country = sys.getString("state");
+        int qtInt = Integer.parseInt(paramsM[0]);
+        queryType = QueryType.values()[qtInt];
+        if(queryType == QueryType.BookSmall || queryType == QueryType.BookFull || queryType == QueryType.BookSingle)
+        {
+            try {
+                json.put("MC", 1);
+                json.put("ID", Integer.parseInt(paramsM[1]));
 
-                JSONObject main  = reader.getJSONObject("firstName");
-                String temperature = main.getString("firstName");
-
-                Log.d("JSON", country);
-            }
-            catch (JSONException e)
-            {
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+        else if(queryType == QueryType.BookNine)
+        {
+            try {
+                JSONArray ids = new JSONArray();
+                for(int i = 0; i < 9; i++)
+                {
+                    ids.put(Integer.parseInt(paramsM[i + 1]));
+                }
+                json.put("MC", 4);
+                json.put("IDS", ids);
 
-        } else {
-            Log.e("JSON", "Couldn't get json from server.");
-
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-        return null;
-    }
 
-    @Override
-    protected void onPostExecute(Void result) {
-        super.onPostExecute(result);
 
-    }
-  /*  public String loadJSONFromAsset() {
-        String json = null;
+
+        data = json.toString();
         try {
+            URL url = new URL(reqUrl);
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-            InputStream is = getResources().openRawResource(R.raw.getBookByID);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+
+            params.clear();
+            params.add(new BasicNameValuePair("request", data));
+            out = conn.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+
+            writer.write(getQuery(params));
+            writer.flush();
+            writer.close();
+            out.close();
+
+            conn.connect();
+            // read the response
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+            response = convertStreamToString(in);
+
+        } catch (MalformedURLException e) {
+            Log.e("TestCon", "MalformedURLException: " + e.getMessage());
+        } catch (ProtocolException e) {
+            Log.e("TestCon", "ProtocolException: " + e.getMessage());
+        } catch (IOException e) {
+            Log.e("TestCon", "IOException: " + e.getMessage());
+        } catch (Exception e) {
+            Log.e("TestCon", "Exception: " + e.getMessage());
         }
-        return json;
-    }*/
 
+        Log.d("TestCon", "Response from server: " + response);
+        if(queryType == QueryType.BookSmall || queryType == QueryType.BookFull || queryType == QueryType.BookSingle)
+        {
+            JSONHandler js = new JSONHandler(response, QueryType.BookSingle);
+            bookActivity.book = js.getSingleBook();
+        }
+        else if(queryType == QueryType.BookNine)
+        {
+            JSONHandler jsonHandler = new JSONHandler(response, QueryType.BookNine);
+            LibraryActivity.books = jsonHandler.getReadingBooks();
+        }
 
+        return response;
+    }
+
+    private String convertStreamToString(InputStream is) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append('\n');
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return sb.toString();
+    }
+    private String getQuery(List<NameValuePair> params) throws UnsupportedEncodingException
+    {
+        StringBuilder result = new StringBuilder();
+        boolean first = true;
+
+        for (NameValuePair pair : params)
+        {
+            if (first)
+                first = false;
+            else
+                result.append("&");
+
+            result.append(URLEncoder.encode(pair.getName(), "UTF-8"));
+            result.append("=");
+            result.append(URLEncoder.encode(pair.getValue(), "UTF-8"));
+        }
+
+        return result.toString();
+    }
 }
+
+
