@@ -2,6 +2,8 @@
 
 ## (JSON)
 
+
+
 Template:
 
 * **Variable Name** (Short variable explanation)
@@ -13,6 +15,11 @@ Template:
   The JSON represents a dictionary with the following structure: *Variable Name* : *Value*.
 
   e.g { SomeString : "Some string", SomeInteger : 35 }
+
+Aliases: 
+
+* **Request** - **Message** sent from the app to the server.
+* **Response** - JSON sent from the server to the app.
 
 ### JSON fields
 
@@ -47,25 +54,32 @@ Template:
   *  0 - No message code. The same as this field being empty.
   *  1 - Request 1 book by its ID. (Set the field **ID** in the message to have the desired ID)
   *  2 - Request 1 author by its ID. (Set the field **ID** in the message to have the desired ID)
-  *  3 - Request an array of books by their ID. (Set the field **IDS** in the message to have the desired IDs)
+  *  3 - Request all tags
+  *  4 - Request multiple **MC 1**. (Set the field **IDS** in the message to have the desired IDs)
+  *  5 - Request id, name, rating, rating_count, cover for a book by its ID. (Set the field **ID** in the message to have the desired ID)
+  *  6 - Request multiple **MC 5**. (Set the field **IDS** in the message to have the desired IDs)
 
 * **ID**
 
   ID needed when sending SELECT requests.
 
-* **E** (Error code)
+* **LANG** (Language)
+
+  Specify the desired language for the translation return either by ID or by ISO code.
+
+* **E** (Error)
 
   If this field is omitted the default value is 0.
 
   List of errors from the server:
 
   * 0 - No errors encountered.
-  * 1 - Invalid POST request. *message* is not received. Make sure the app is sending the JSON under a string named *message*.
+  * 1 - Invalid POST request. *request* is not received. Make sure the app is sending the JSON under a string named *request*.
   * 2 - Empty request. *message* is an empty string. Make sure the app is giving *message* a value.
   * 3 - Invalid JSON. The JSON provided in *message* could not be correctly parsed.
   * 4 - Error in the php. Check the log in the DB for more info.
   * 5 - Failed to connect to the DB.
-  * 6 - Failed to ping the DB.
+  * 6 - 
   * 7 - Authorization to the DB failed. Check the user who is trying to log in that they have proper username and password.
   * 8 - Failed to prepare SQL statement.
   * 9 - Provided wrong key to input in the DB. Either the key does not exist in the table or it's from another table.
@@ -77,8 +91,10 @@ Template:
   * 15 - Failed to execute prepared SQL statement.
   * 16 - Failed to get result from prepares SQL statement.
   * 17 - Failed to fetch_assoc from the result of prepared SQL statement.
-  * 18 - Wrong information format provided in **Message Details**. (e.g a field that must be an int is a string instead)
+  * 18 - 
   * 19 - Missing a field in the message sent which is required. (e.g when requesting a book/author by ID the **ID** field is empty)
+  * 20 - Invalid Message code (**MC**) sent.
+  * 21 - Invalid type of argument supplied to a Select function. (e.g a string was given for the ID when an int was expected)
   * 1062 - Trying to add duplicate entries in the DB. PRIMARY key has to be unique.
   * 1064 - The provided SQL to the function ExecuteQuery in the DB class has bad syntax.
 
@@ -98,7 +114,7 @@ Template:
 
   These errors are logged in the DB regardless of whether debug mode is enabled or not.
 
-  This feature is **experimental** and is only available during early development. After the release of v0.1 it will be deprecated.
+  This feature is **experimental** and is only available during early development.
 
   List of values:
 
