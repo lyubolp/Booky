@@ -58,19 +58,7 @@ public class JSONLoader extends AsyncTask<String, String, String> {
         }
         return "Failed";
     }
-    protected void onPostExecute(String result) {
-        /*Log.d("TestCon", "Query type on post execute" + queryType.toString());
-        if(queryType == QueryType.BookSmall || queryType == QueryType.BookFull || queryType == QueryType.BookSingle)
-        {
-            JSONHandler js = new JSONHandler(result, QueryType.BookSingle);
-            bookActivity.book = js.getSingleBook();
-        }
-        else if(queryType == QueryType.BookNine)
-        {
-            MainActivity.fillUserWithBooks(result);
-        }*/
 
-    }
 
 
     public String makeServiceCall(String... paramsM) {

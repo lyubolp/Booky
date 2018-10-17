@@ -16,7 +16,7 @@ public class User {
 
     public static User Instance = new User();
 
-    private int ID;
+    private int ID; //+
     private int level; //The account level
 
     private short birthYear; //User birth year

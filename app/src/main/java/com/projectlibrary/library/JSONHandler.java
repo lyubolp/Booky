@@ -58,18 +58,15 @@ public class JSONHandler {
 
     Get user settings - WIP
      */
-    private String JSONToHandle = null;
     private JSONArray books;
     private JSONObject singleBook;
     private JSONObject userProfile;
-    public ArrayListAlgorithms arrayListAlgorithms;
     JSONHandler()
     {
-
+        //Default constructor, do not use !
     }
-    JSONHandler(String json, QueryType queryType) //Default constructor, do not use !
+    JSONHandler(String json, QueryType queryType)
     {
-        JSONToHandle = "Default";
         if(queryType == QueryType.BookFull || queryType == QueryType.BookSingle || queryType == QueryType.BookSmall || queryType == QueryType.BookNine )
         {
             getBooks(json, queryType);
@@ -214,7 +211,6 @@ public class JSONHandler {
             {
                 Author temp = getAuthor(authors.getJSONObject(i));
                 authorsS.add(temp);
-                //arrayListAlgorithms.authorInsertById(authorsS, temp);
             }
         }
         catch (JSONException e) {
