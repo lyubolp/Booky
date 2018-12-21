@@ -1,9 +1,21 @@
 package com.projectlibrary.library;
 
 import java.util.ArrayList;
+/**
+ * @author: Lyuboslav Karev
+ * @version:0.1
+ * @since:0.1
+ */
 
 public class Author {
-
+    /**
+     * Description of this class:
+     *  Class that is stores the information about an author
+     *  It has fields for a variety of things
+     *  All fields have getters
+     *  There is also a constructor with all parameters
+     *  There are no setters
+     */
     private int id; //The id of the author
 
     private short bornYear; //The year the author is born

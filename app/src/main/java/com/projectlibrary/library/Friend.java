@@ -2,7 +2,20 @@ package com.projectlibrary.library;
 
 import java.util.Date;
 
+/**
+ * @author: Lyuboslav Karev
+ * @version: 0.1
+ * @since: 0.1
+ */
 public class Friend {
+
+    /**
+     * Description of this class:
+     *  Class that stores the information of the user's friends
+     *  It has fields for the ID, if the user is online, the nickname, avatar, last online
+     *  All fields has getters
+     *  Has a constructor with all parameters, default one, and only with the id
+     */
 
     private int ID; //The user-id of the friend
 

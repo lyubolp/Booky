@@ -1,5 +1,9 @@
 package com.projectlibrary.library;
-
+/**
+ * @author Lyuboslav Karev
+ * @version 0.1
+ * @since 0.1
+ */
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -42,12 +46,24 @@ public class JSONLoader extends AsyncTask<String, String, String> {
     }
 
     /**
+     Description of this class:
+     The JSONLoader class takes care for the loading of the JSON from the server.
+     It sends requests to the server, and the server returns a JSON string.
+     The class sends an async request to the server.
 
      How does this class work?
      We call it by using: new JSONLoader().execute(params);
         where params are:
         params[0] - the query type in number type (check JSONHanlder -> QueryType)
         params[1] - additional info to the query (ex. ids)
+
+     Based on the params send to the class, we construct the JSON request that is going to be sent
+     to the server. Then the request is sent to the server and the response is returned as a String
+
+     makeServiceCall() is the main method that is used in this class.
+
+     The class is called upon the following way:
+        String res = new JSONLoader().execute(params).get();
      **/
     @Override
     protected String doInBackground(String... params) {
@@ -67,6 +83,12 @@ public class JSONLoader extends AsyncTask<String, String, String> {
         OutputStream out = null;
         JSONObject json = new JSONObject();
 
+
+        /**
+         * qtInt - the query type from the params string
+         * After that, we get the QueryType object based on the input
+         * Based on what the query is, we get the proper QueryType object and construct the JSON
+         */
         int qtInt = Integer.parseInt(paramsM[0]);
         queryType = QueryType.values()[qtInt];
         if(queryType == QueryType.BookSmall || queryType == QueryType.BookFull || queryType == QueryType.BookSingle)
@@ -81,7 +103,7 @@ public class JSONLoader extends AsyncTask<String, String, String> {
         }
         else if(queryType == QueryType.BookNine)
         {
-            try {
+            try { 
                 JSONArray ids = new JSONArray();
                 for(int i = 0; i < 9; i++)
                 {
@@ -96,8 +118,9 @@ public class JSONLoader extends AsyncTask<String, String, String> {
         }
 
 
-
-
+        /**
+         * Here we create the connection to the server
+         */
         data = json.toString();
         try {
             URL url = new URL(reqUrl);
@@ -133,17 +156,30 @@ public class JSONLoader extends AsyncTask<String, String, String> {
             Log.e("TestCon", "Exception: " + e.getMessage());
         }
 
+        /**
+         * Error handling
+         * If there are no errors, we convert the JSON string to objects and pass them to the
+         *  application directly
+         */
         Log.d("TestCon", "Response from server: " + response);
-        if(queryType == QueryType.BookSmall || queryType == QueryType.BookFull || queryType == QueryType.BookSingle)
+        if(response.startsWith("{E"))
         {
-            JSONHandler js = new JSONHandler(response, QueryType.BookSingle);
-            bookActivity.book = js.getSingleBook();
+
         }
-        else if(queryType == QueryType.BookNine)
+        else
         {
-            JSONHandler jsonHandler = new JSONHandler(response, QueryType.BookNine);
-            LibraryActivity.books = jsonHandler.getReadingBooks();
+            if(queryType == QueryType.BookSmall || queryType == QueryType.BookFull || queryType == QueryType.BookSingle)
+            {
+                JSONHandler js = new JSONHandler(response, QueryType.BookSingle);
+                bookActivity.book = js.getSingleBook();
+            }
+            else if(queryType == QueryType.BookNine)
+            {
+                JSONHandler jsonHandler = new JSONHandler(response, QueryType.BookNine);
+                LibraryActivity.books = jsonHandler.getReadingBooks();
+            }
         }
+
 
         return response;
     }

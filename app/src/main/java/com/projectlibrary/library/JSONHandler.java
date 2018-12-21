@@ -58,15 +58,25 @@ public class JSONHandler {
 
     Get user settings - WIP
      */
-    private JSONArray books;
-    private JSONObject singleBook;
-    private JSONObject userProfile;
+    private JSONArray books; //Books holder
+    private JSONObject singleBook; //Single book holder
+    private JSONObject userProfile; //User profile holder
     JSONHandler()
     {
         //Default constructor, do not use !
     }
     JSONHandler(String json, QueryType queryType)
     {
+        /**
+         * @params: String json, QueryType queryType
+         * String json -> the json to be parsed
+         * QueryType queryType -> The type of the query to be executed
+         *
+         * This constructor is called when there is JSON to be parsed
+         * Based on this, we can execute different queries from the same class
+         *
+         * When the query is for a book, we call getBooks()
+         */
         if(queryType == QueryType.BookFull || queryType == QueryType.BookSingle || queryType == QueryType.BookSmall || queryType == QueryType.BookNine )
         {
             getBooks(json, queryType);
@@ -82,8 +92,18 @@ public class JSONHandler {
      * BASE METHODS
      * All other methods use those base ones
      */
-    private void getBooks(String json, QueryType queryType) //Ready
+    private void getBooks(String json, QueryType queryType)
     {
+        /**
+         * @params: String json, QueryType queryType
+         * String json -> the json to be parsed
+         * QueryType queryType -> The type of the query to be executed
+         *
+         * Creates a JSONObject which reads the JSON.
+         * Then based on the query (if its a single book or more), we fill the corresponding container (singleBook or books)
+         *
+         * This method is called on initialization, because the other methods use the containers singleBook or books to return the objects used in Java
+         */
         JSONObject reader;
         try
         {
@@ -105,6 +125,13 @@ public class JSONHandler {
     }
     private Book getBookBasicInfo(JSONObject curBook)
     {
+        /**
+         * @params: JSONObject curBook -> the current book is JSONObject form
+         * @return: Book - the Java object to be used to hold the information about the current book
+         *
+         * This method converts aa JSONObject containing a book info, to a Book object
+         * It saves only the "basic" info -> the id, the rating, the cover and the name
+         */
         JSONObject book, translation;
         Book r = new Book();
         try {
@@ -123,14 +150,21 @@ public class JSONHandler {
         }
         return r;
     }
-    private ArrayList<Book> fillArrayListBooksBasicInfo() //Ready
+    private ArrayList<Integer> fillArrayListBooksBasicInfo() //Ready
     {
-        ArrayList<Book> result = new ArrayList<>();
+        /**
+         * @return: ArrayList<Integer> - the container to be filled with the id's of the books
+         *
+         * This method fills an ArrayList with the ids of the books
+         * Q: Why there are no arguments ?
+         * A: Because the for loop uses the books container
+         */
+        ArrayList<Integer> result = new ArrayList<>();
 
         int s = books.length();
         for(int i = 0; i < s; i++) {
             try {
-                result.add(getBookBasicInfo(books.getJSONObject(i)));
+                result.add(getBookBasicInfo(books.getJSONObject(i)).getID());
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -142,7 +176,7 @@ public class JSONHandler {
     private Book getBookFromJSONObject(JSONObject curBook) //Ready
     {
         /**
-         *@param: JSONObject curBook - constains 7 JSONArray's:
+         *@param: JSONObject curBook - constains 7 JSONArray's
          *  book
          *  authors
          *  tags
@@ -151,6 +185,8 @@ public class JSONHandler {
          *  language
          *  country
          * We split them into different JSONObjects or JSONArray, and get the relevant info from them
+         *
+         * This method returns a Book object based on the information from a JSONObject
          */
         JSONObject book, series, traslation, language, country;
         JSONArray authors, tags;
@@ -166,7 +202,7 @@ public class JSONHandler {
                 seriesS = "", summary = "", genres = "", userNote = "";
 
 
-        ArrayList<Author> authorsS = new ArrayList<>();
+        ArrayList<Integer> authorsS = new ArrayList<>();
         ArrayList<String>  types = new ArrayList<>();
         ArrayList<Review> reviews = new ArrayList<>();
 
@@ -209,14 +245,12 @@ public class JSONHandler {
 
             for(int i = 0; i < s; i++)
             {
-                Author temp = getAuthor(authors.getJSONObject(i));
-                authorsS.add(temp);
+                authorsS.add(authors.getJSONObject(i).getInt("id"));
             }
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
-
 
         try {
             tags = curBook.getJSONArray("tags");
@@ -270,6 +304,9 @@ public class JSONHandler {
     }
     private Author getAuthor(JSONObject obj)
     {
+        /**
+         * This method returns an Author object based on the information
+         */
         int id = 0; //The id of the author
         short bornYear = 0; //The year the author is born
         short diedYear = 0; //The year the author has died (if not, its 0)
@@ -308,34 +345,39 @@ public class JSONHandler {
     }
     /**
      * Custom methods
+     * Those methods work the same way:, they use the method fillArrayWithBookBasicInfo();, although its WIP
+     * @TODO
      */
-    ArrayList<Book> getFavoriteBooks()
+    ArrayList<Integer> getFavoriteBooks()
     {
         return fillArrayListBooksBasicInfo();
     }
-    ArrayList<Book> getReadingBooks()
+    ArrayList<Integer> getReadingBooks()
     {
         return fillArrayListBooksBasicInfo();
     }
-    ArrayList<Book> getWishlishBooks()
+    ArrayList<Integer> getWishlishBooks()
     {
         return fillArrayListBooksBasicInfo();
     }
-    ArrayList<Book> getDroppedBooks()
+    ArrayList<Integer> getDroppedBooks()
     {
         return fillArrayListBooksBasicInfo();
     }
-    ArrayList<Book> getOnHoldBooks()
+    ArrayList<Integer> getOnHoldBooks()
     {
         return fillArrayListBooksBasicInfo();
     }
-    ArrayList<Book> getFinishedBooks()
+    ArrayList<Integer> getFinishedBooks()
     {
         return fillArrayListBooksBasicInfo();
     }
 
     ArrayList<Book> getAllBooks()
     {
+        /**
+         * Method that fills an ArrayList with all books
+         */
         ArrayList<Book> result = new ArrayList<>();
         int s = books.length();
 
@@ -352,6 +394,9 @@ public class JSONHandler {
     }
     Book getBookAt(int id)
     {
+        /**
+         * Method that returns the book by its id
+         */
 
         Book result = new Book();
         for(int i = 0; i < books.length(); i++)

@@ -2,11 +2,26 @@ package com.projectlibrary.library;
 
 import java.util.ArrayList;
 
-
+/**
+ * @author: Lyuboslav Karev
+ * @version: 0.1
+ * @since: 0.1
+ */
 public class Book {
 
 
-
+    /**
+     * Description of this class:
+     *  This class is used to store information about the books.
+     *  It has a lot of fields, which are related to the information about the book
+     *  It also contains a enum BookStatus, which is signals the state that book is in for the current user
+     *  As well as the user rating, user reread value, user reread count, user note
+     *  All fields have getter methods
+     *  The fields that are related to the user data (user rating, user status, etc.) also have setters
+     *  It has four constructors - default, Book(id) -> make a book with only the id (not used), Book(small info) -> when we want to make a book with its "small info" (id, rating, cover)
+     *      & Book (all fields)
+     *
+     */
     enum BookStatus
     {
         Reading,
@@ -42,7 +57,7 @@ public class Book {
     private String userNote; //A note that the user gave the book
 
 
-    private ArrayList<Author> authors; //The authors of the book
+    private ArrayList<Integer> authors; //The authors of the book
     private String genres; //The genres of the book
     private ArrayList<String> types; //The book types
     private ArrayList<Review> reviews; //The book reviews
@@ -65,7 +80,7 @@ public class Book {
         coverLink = Cover;
         name = Name;
     }
-    Book(int id, int seriesID, int finished, int reading, int wishlish, int dropped, int onhold, int reviewsCount, short chapters, short publishYear, short rating, short userRating, short userRereadValue, short userRereadCount, String nameOriginal, String name, String language, String country, String series, String coverLink, String summary, String userNote, ArrayList<Author> authors, String genres, ArrayList<String> types, ArrayList<Review> reviews, BookStatus userStatus) //Gets the book based on its id
+    Book(int id, int seriesID, int finished, int reading, int wishlish, int dropped, int onhold, int reviewsCount, short chapters, short publishYear, short rating, short userRating, short userRereadValue, short userRereadCount, String nameOriginal, String name, String language, String country, String series, String coverLink, String summary, String userNote, ArrayList<Integer> authors, String genres, ArrayList<String> types, ArrayList<Review> reviews, BookStatus userStatus) //Gets the book based on its id
     {
         ID = id;
         this.seriesID = seriesID;
@@ -184,7 +199,7 @@ public class Book {
         return userNote;
     }
 
-    public ArrayList<Author> getAuthors() {
+    public ArrayList<Integer> getAuthors() {
         return authors;
     }
 

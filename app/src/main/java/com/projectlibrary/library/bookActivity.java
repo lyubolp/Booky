@@ -32,7 +32,7 @@ public class bookActivity extends AppCompatActivity {
 
 
         TextView tv = (TextView)findViewById(R.id.bookTitleAuthor);
-        tv.setText(book.getName() + " - " + book.getAuthors().get(0).getName());
+        tv.setText(book.getName());
 
        TextView tv2 = (TextView)findViewById(R.id.bookYearPublished);
         tv2.setText("Година на издаване - " + Integer.toString(book.getPublishYear()) + "г.");

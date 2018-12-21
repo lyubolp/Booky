@@ -146,10 +146,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    /*public static void fillUserWithBooks(String json)
+    public static void fillUserWithBooks(String json)
     {
         JSONHandler jsonHandler = new JSONHandler(json, QueryType.BookNine);
-        ArrayList<Book> books = jsonHandler.getReadingBooks();
+        ArrayList<Integer> books = jsonHandler.getReadingBooks();
         User.Instance.setReadingBooks(books);
-    }*/
+    }
 }

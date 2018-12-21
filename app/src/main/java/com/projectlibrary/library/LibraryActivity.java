@@ -23,8 +23,8 @@ public class LibraryActivity extends AppCompatActivity {
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
     private TextView pagesText;
     private Button btnPrev, btnNext;
-    public static ArrayList<Book> books;
-    int page = 1, maxPage = 1;
+    public static ArrayList<Integer> books;
+    int page = 1, maxPage = 3;
 
     //Events for images clicked
 
@@ -149,47 +149,47 @@ public class LibraryActivity extends AppCompatActivity {
             case "com.projectlibrary.library:id/book1":
 
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(0).getID()));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(0)));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book2":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(1).getID()));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(1)));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book3":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(2).getID()));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(2)));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book4":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(3).getID()));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(3)));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book5":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(4).getID()));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(4)));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book6":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(5).getID()));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(5)));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book7":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(6).getID()));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(6)));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book8":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(7).getID()));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(7)));
                 startActivity(intent);
                 break;
             case "com.projectlibrary.library:id/book9":
                 intent = new Intent(LibraryActivity.this, bookActivity.class);
-                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(8).getID()));
+                intent.putExtra("OPENED_BOOK", String.valueOf(books.get(8)));
                 startActivity(intent);
                 break;
         }
@@ -211,11 +211,15 @@ public class LibraryActivity extends AppCompatActivity {
             {
                 for(int i = 1; i < 10; i++)
                 {
-                    params[i] = Integer.toString(Instance.getReading().get((i-1) + (page - 1)*9));
+                    params[i] = Integer.toString(User.Instance.getReading().get((i-1) + (page - 1)*9));
                 }
             }
 
             String res = new JSONLoader().execute(params).get();
+            if(res == "Failed")
+            {
+                //App crashes
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
