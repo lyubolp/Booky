@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#924d21</color>
     <color name="colorAccent">#1e8602</color>
     <color name="colorBlack">#000000</color>
-    <color name="bookStateRead">#4fb748</color>
+    <color name="bookStateRead">#4FB748</color>
     <color name="bookStateReading">#FFCC00</color>
     <color name="bookStateWishlist">#33CCCC</color>
     <color name="bookStateDroped">#CC0000</color>

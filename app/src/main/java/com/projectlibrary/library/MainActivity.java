@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
                         */
                         switch (menuItem.toString())
                         {
+                            case "Профил":
+                                Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                                startActivity(intentProfile);
+
+                                break;
                             case "Библиотека":
                                 //startActivity(new Intent(MainActivity.this, library.class));
                                 Intent intent = new Intent(MainActivity.this, LibraryActivity.class);
