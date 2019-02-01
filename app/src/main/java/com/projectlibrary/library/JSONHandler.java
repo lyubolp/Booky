@@ -5,6 +5,8 @@ package com.projectlibrary.library;
  * @since 0.1
  */
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +24,8 @@ enum QueryType
     BookNine,
     BookSingle,
     UserInfo,
-    UserSettings
+    UserSettings,
+    AuthorSingle
 }
 public class JSONHandler {
     /**
@@ -81,6 +84,10 @@ public class JSONHandler {
         {
             getBooks(json, queryType);
         }
+        else if(queryType == QueryType.AuthorSingle)
+        {
+            //getAuthor();
+        }
         else
         {
             //Fill other containers
@@ -104,6 +111,7 @@ public class JSONHandler {
          *
          * This method is called on initialization, because the other methods use the containers singleBook or books to return the objects used in Java
          */
+        Log.d("JSON", json);
         JSONObject reader;
         try
         {
@@ -501,6 +509,17 @@ public class JSONHandler {
             e.printStackTrace();
         }
     }
+    public Author getAuthorFromSingleBook()
+    {
+        try {
+            JSONArray authors = singleBook.getJSONArray("authors");
+            return getAuthor(authors.getJSONObject(0));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return new Author();
+    }
+
 
 
 

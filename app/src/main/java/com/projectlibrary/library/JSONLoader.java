@@ -172,6 +172,7 @@ public class JSONLoader extends AsyncTask<String, String, String> {
             {
                 JSONHandler js = new JSONHandler(response, QueryType.BookSingle);
                 bookActivity.book = js.getSingleBook();
+                bookActivity.author = js.getAuthorFromSingleBook();
             }
             else if(queryType == QueryType.BookNine)
             {

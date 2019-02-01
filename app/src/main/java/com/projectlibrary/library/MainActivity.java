@@ -104,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+
+
     }
 
     @Override
@@ -140,14 +143,15 @@ public class MainActivity extends AppCompatActivity {
      */
     public void playGround() //Testing some stuff
     {
-        ArrayList<Integer> ids = new ArrayList<>();
+        //TEST CODE FOR USER PROFILE
+        User.Instance.setNickname("Любослав Карев");
+        ArrayList<Integer> test = new ArrayList<>();
 
-        for(int i = 1; i < 23; i++)
+        for(int i = 1; i < 21; i++)
         {
-            ids.add(i);
+            test.add(i*17 + i*5);
         }
-        User.Instance.setReadingBooks(ids);
-
+        User.Instance.setReadingBooks(test);
 
 
     }
